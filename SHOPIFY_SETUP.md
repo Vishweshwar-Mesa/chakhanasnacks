@@ -59,7 +59,23 @@ shopify theme list
 shopify theme push --theme=<theme-id-from-list>
 ```
 
-## 7. Products, collections, navigation, pages, metafields
+## 7. Connect GitHub for auto-deploy (optional, does what you asked for)
+
+The code is backed up at **https://github.com/Vishweshwar-Mesa/chakhanasnacks** (`main` branch). Shopify has a native GitHub integration that keeps a theme in sync with a branch — every push auto-updates that theme (it does **not** auto-publish live; publishing stays a manual, separate step). This requires an OAuth authorization in your browser, so it can only be done by you, not from a CLI/automation session:
+
+1. In Shopify Admin, go to **Online Store → Themes**.
+2. Two options, pick one:
+   - **Connect the existing preview theme**: find **"Chakhana — Custom Build Preview"** in the theme library, open its **⋯ actions menu**, and look for **Connect to GitHub**.
+   - **Or start fresh**: click **Add theme → Connect from GitHub**.
+3. Authorize the **Shopify** GitHub App when prompted, and grant it access to the `Vishweshwar-Mesa/chakhanasnacks` repository (GitHub will ask you to pick "All repositories" or select this one specifically — selecting just this repo is the tighter-permission choice).
+4. Choose the `main` branch. Leave the theme root path as default (the theme files already live at the repo root, not in a subfolder).
+5. Shopify will pull the current `main` and keep that theme synced going forward.
+
+**After connecting:** stop running `shopify theme push` against that specific theme — edit locally, `git commit`, `git push` to `main`, and Shopify picks it up automatically within a minute or two. (The CLI push commands in this doc still work fine for *other*, non-GitHub-connected themes if you want a separate manual-push sandbox.)
+
+If you later want per-branch preview themes (e.g. a `staging` branch mapped to its own theme, so you can experiment without touching what's connected to `main`), repeat this same flow for that branch from **Add theme → Connect from GitHub**.
+
+## 8. Products, collections, navigation, pages, metafields
 
 All of this is store content, not theme code — full step-by-step instructions are in **`SETUP.md`**. Do these before your first real preview so the homepage/collections/PDP aren't showing empty states:
 
@@ -70,7 +86,7 @@ All of this is store content, not theme code — full step-by-step instructions 
 5. Create the Contact / Our Story / FAQ / Shipping & Returns pages with their matching theme templates (`SETUP.md` §5)
 6. (Optional) Nutrition & ingredients metafield definitions (`SETUP.md` §9)
 
-## 8. Theme customizer review
+## 9. Theme customizer review
 
 **Online Store → Themes → [your staging theme] → Customize.** Every new homepage section (hero, marquee, shop-by-craving, bestsellers, flavour universe, editorial stories, combo builder, testimonials, UGC grid, final CTA) is fully editable/reorderable here — nothing is hardcoded. Check:
 - Announcement bar messages
@@ -78,19 +94,19 @@ All of this is store content, not theme code — full step-by-step instructions 
 - Color schemes if you want to nudge any flavour's brand color
 - Testimonials are placeholder/demo content by design — replace with real reviews here once you have them
 
-## 9. Razorpay
+## 10. Razorpay
 
 Separate guide: **`RAZORPAY_SETUP.md`**. Payments setup happens entirely in Shopify Admin + Razorpay Dashboard, not in the theme.
 
-## 10. Analytics (optional)
+## 11. Analytics (optional)
 
 Shopify's native analytics and the Google/Meta sales channel apps (Settings → Customer events) need no theme changes. If you specifically also want GA4/Meta Pixel loaded directly by the theme, fill in **Theme settings → Analytics → GA4 measurement ID / Meta Pixel ID** — leave blank to skip; no IDs are hardcoded anywhere in the codebase.
 
-## 11. Test order
+## 12. Test order
 
 Follow the checklist in `RAZORPAY_SETUP.md` — place at least one test-mode order and one small real order before announcing launch.
 
-## 12. Go live
+## 13. Go live
 
 Once staging looks right in step 8 and a real test order completed successfully:
 
