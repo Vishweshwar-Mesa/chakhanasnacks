@@ -10,3 +10,6 @@ Thumbs.db
 .shopify
 node_modules
 *.zip
+
+# Local Claude Code tool config (not project source)
+.claude/

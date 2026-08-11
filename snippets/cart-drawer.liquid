@@ -74,6 +74,28 @@
           </span>
         </button>
       </div>
+      {%- if cart != empty and settings.free_shipping_bar_enable and settings.free_shipping_threshold > 0 -%}
+        {%- liquid
+          assign free_shipping_threshold_cents = settings.free_shipping_threshold | times: 100
+          assign free_shipping_remaining_cents = free_shipping_threshold_cents | minus: cart.total_price
+          assign free_shipping_percent = cart.total_price | times: 100.0 | divided_by: free_shipping_threshold_cents | at_most: 100
+        -%}
+        <div class="chk-free-shipping-bar" role="status">
+          {%- if free_shipping_remaining_cents > 0 -%}
+            <p class="chk-free-shipping-bar__text">
+              {{ free_shipping_remaining_cents | money }} away from <strong>free shipping</strong>
+            </p>
+          {%- else -%}
+            <p class="chk-free-shipping-bar__text chk-free-shipping-bar__text--unlocked">
+              {{- 'icon-checkmark.svg' | inline_asset_content -}}
+              You've unlocked free shipping!
+            </p>
+          {%- endif -%}
+          <div class="chk-free-shipping-bar__track">
+            <div class="chk-free-shipping-bar__fill" style="width: {{ free_shipping_percent }}%;"></div>
+          </div>
+        </div>
+      {%- endif -%}
       <cart-drawer-items
         view-event-payload="{{ cart | standard_event_data: 'view', context: 'dialog' | escape }}"
         view-event-trigger="manual"
@@ -487,6 +509,38 @@
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
       </cart-drawer-items>
+      {%- if cart != empty and settings.cart_drawer_collection != blank -%}
+        {%- liquid
+          assign cart_product_ids = cart.items | map: 'product_id'
+          assign recommended_count = 0
+        -%}
+        {%- capture recommendations_markup -%}
+          {%- for product in settings.cart_drawer_collection.products -%}
+            {%- unless cart_product_ids contains product.id or recommended_count >= 3 -%}
+              {%- assign recommended_count = recommended_count | plus: 1 -%}
+              <li class="chk-cart-recommendations__item">
+                <a href="{{ product.url }}">
+                  {%- if product.featured_image != blank -%}
+                    {{ product.featured_image | image_url: width: 200 | image_tag: loading: 'lazy', widths: '100, 150, 200', alt: '' }}
+                  {%- endif -%}
+                  <span class="chk-cart-recommendations__item-title">{{ product.title | escape }}</span>
+                  <span class="chk-cart-recommendations__item-price">
+                    {%- render 'price', product: product -%}
+                  </span>
+                </a>
+              </li>
+            {%- endunless -%}
+          {%- endfor -%}
+        {%- endcapture -%}
+        {%- if recommended_count > 0 -%}
+          <div class="chk-cart-recommendations">
+            <p class="chk-cart-recommendations__heading">You might also like</p>
+            <ul class="chk-cart-recommendations__list" role="list">
+              {{ recommendations_markup }}
+            </ul>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
       <div class="drawer__footer">
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">

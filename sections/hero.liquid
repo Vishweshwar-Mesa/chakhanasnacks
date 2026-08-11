@@ -1,0 +1,232 @@
+{%- style -%}
+  .chk-hero {
+    position: relative;
+    min-height: {{ section.settings.height }}vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: var(--space-6) 0;
+  }
+
+  .chk-hero__grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .chk-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .chk-hero__copy {
+    position: relative;
+    z-index: 2;
+    max-width: 62rem;
+  }
+
+  .chk-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    background: rgba(var(--color-foreground), 0.08);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-3);
+  }
+
+  .chk-hero__heading {
+    font-size: clamp(3.6rem, 6vw + 1.6rem, 8.5rem);
+  }
+
+  .chk-hero__lede {
+    margin-top: var(--space-3);
+  }
+
+  .chk-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+
+  .chk-hero__packs {
+    position: relative;
+    z-index: 1;
+    margin-top: var(--space-6);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+  }
+
+  .chk-hero__pack {
+    position: relative;
+  }
+
+  .chk-hero__pack img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.18));
+  }
+
+  .chk-hero__pack:nth-child(1) { transform: rotate(-6deg) translateY(1rem); }
+  .chk-hero__pack:nth-child(2) { transform: rotate(3deg); }
+  .chk-hero__pack:nth-child(3) { transform: rotate(-3deg); }
+  .chk-hero__pack:nth-child(4) { transform: rotate(6deg) translateY(1.4rem); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .chk-hero__pack {
+      transition: transform var(--duration-slow) var(--ease-out-back);
+    }
+
+    .chk-hero__pack:hover {
+      transform: rotate(0deg) translateY(-0.8rem) scale(1.04) !important;
+      z-index: 3;
+    }
+
+    /* Uses the standalone `translate` property (not `transform`) so the
+       per-pack rotate() tilt above is never clobbered by the reveal. */
+    .chk-js .chk-hero__pack {
+      opacity: 0;
+      translate: 0 3rem;
+      transition:
+        opacity var(--duration-slow) var(--ease-out-expo),
+        translate var(--duration-slow) var(--ease-out-expo);
+      transition-delay: calc(var(--chk-stagger, 0) * 90ms);
+    }
+
+    .chk-js .chk-hero__pack.is-visible {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .chk-hero__packs {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 32rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .chk-hero {
+      text-align: center;
+      min-height: auto;
+      padding-top: var(--space-5);
+    }
+
+    .chk-hero__copy {
+      max-width: none;
+      margin: 0 auto;
+    }
+
+    .chk-hero__actions {
+      justify-content: center;
+    }
+  }
+{%- endstyle -%}
+
+<div class="chk-hero color-{{ section.settings.color_scheme }} gradient">
+  <div class="chk-hero__grain" aria-hidden="true"></div>
+  <div class="page-width chk-hero__inner">
+    <div class="chk-hero__copy chk-reveal">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="chk-hero__eyebrow">{{ section.settings.eyebrow | escape }}</span>
+      {%- endif -%}
+      <h1 class="chk-hero__heading chk-display">{{ section.settings.heading }}</h1>
+      {%- if section.settings.text != blank -%}
+        <div class="chk-hero__lede chk-lede rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+      <div class="chk-hero__actions">
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: '#' }}" class="button">{{ section.settings.button_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.button_label_2 != blank -%}
+          <a href="{{ section.settings.button_link_2 | default: '#' }}" class="button button--secondary">{{ section.settings.button_label_2 }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="chk-hero__packs">
+        {%- for block in section.blocks -%}
+          <div class="chk-hero__pack" data-chk-reveal style="--chk-stagger: {{ forloop.index0 }};" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 500
+                | image_tag: loading: 'eager', widths: '250, 375, 500', sizes: '(min-width: 750px) 20vw, 40vw', alt: ''
+              }}
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Chakhana hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "min": 60,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "label": "Minimum height",
+      "default": 85
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Roasted. Seasoned. Not boring." },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Snacking just got a lot more Chakhana."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Subtext",
+      "default": "<p>Makhana &amp; ragi chips made for cravings that refuse to be boring.</p>"
+    },
+    { "type": "text", "id": "button_label", "label": "Primary button label", "default": "Shop the crunch" },
+    { "type": "url", "id": "button_link", "label": "Primary button link" },
+    { "type": "text", "id": "button_label_2", "label": "Secondary button label", "default": "Meet the flavours" },
+    { "type": "url", "id": "button_link_2", "label": "Secondary button link" }
+  ],
+  "blocks": [
+    {
+      "type": "pack",
+      "name": "Pack image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Chakhana hero"
+    }
+  ]
+}
+{% endschema %}

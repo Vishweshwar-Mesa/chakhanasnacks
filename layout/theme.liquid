@@ -2,6 +2,7 @@
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
+    <script>document.documentElement.classList.add('chk-js');</script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
@@ -27,6 +28,8 @@
     {% endif %}
 
     {% render 'meta-tags' %}
+    {% render 'structured-data-organization' %}
+    {% render 'structured-data-breadcrumbs' %}
 
     <script type="module">
       import * as StandardEvents from 'https://cdn.shopify.com/storefront/standard-events.js';
@@ -62,6 +65,7 @@
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    <script src="{{ 'chakhana-motion.js' | asset_url }}" defer="defer"></script>
 
     {{ content_for_header }}
 
@@ -279,6 +283,7 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'chakhana-base.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -319,6 +324,8 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+
+    {% render 'analytics-hooks' %}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">

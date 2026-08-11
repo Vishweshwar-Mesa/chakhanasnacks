@@ -1,75 +1,362 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero": {
+      "type": "hero",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "pack_1": {
+          "type": "pack",
+          "settings": { "image": "shopify://shop_images/masala-makhana-100g.jpg" }
+        },
+        "pack_2": {
+          "type": "pack",
+          "settings": { "image": "shopify://shop_images/peri-peri-makhana-100g.jpg" }
+        },
+        "pack_3": {
+          "type": "pack",
+          "settings": { "image": "shopify://shop_images/cream-onion-makhana-100g.jpg" }
+        },
+        "pack_4": {
+          "type": "pack",
+          "settings": { "image": "shopify://shop_images/cheese-herbs-makhana-100g.jpg" }
+        }
+      },
+      "block_order": ["pack_1", "pack_2", "pack_3", "pack_4"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "height": 85,
+        "eyebrow": "Roasted. Seasoned. Not boring.",
+        "heading": "Snacking just got a lot more Chakhana.",
+        "text": "<p>Makhana &amp; ragi chips made for cravings that refuse to be boring.</p>",
+        "button_label": "Shop the crunch",
+        "button_link": "shopify://collections/all",
+        "button_label_2": "Meet the flavours",
+        "button_link_2": "#flavour-universe"
+      }
+    },
+    "marquee": {
+      "type": "marquee",
+      "blocks": {
+        "w1": { "type": "word", "settings": { "text": "MAKHANA" } },
+        "w2": { "type": "word", "settings": { "text": "RAGI" } },
+        "w3": { "type": "word", "settings": { "text": "CRUNCH" } },
+        "w4": { "type": "word", "settings": { "text": "MASALA" } },
+        "w5": { "type": "word", "settings": { "text": "PERI PERI" } },
+        "w6": { "type": "word", "settings": { "text": "CHAKHANA" } }
+      },
+      "block_order": ["w1", "w2", "w3", "w4", "w5", "w6"],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "font_size": 420,
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "aria_label": "Brand marquee: Makhana, Ragi, Crunch, Masala, Peri Peri, Chakhana"
+      }
+    },
+    "shop_by_craving": {
+      "type": "shop-by-craving",
+      "blocks": {
+        "makhana": {
+          "type": "card",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "image": "shopify://shop_images/100g-makhana-4-pack.jpg",
+            "tag": "01 — Makhana",
+            "title": "Makhana Chips",
+            "link": "shopify://collections/makhana-chips",
+            "link_label": "Shop Makhana"
           }
         },
-        "button": {
-          "type": "buttons",
+        "ragi": {
+          "type": "card",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "image": "shopify://shop_images/masala-ragi-chips-100g.jpg",
+            "tag": "02 — Ragi",
+            "title": "Ragi Chips",
+            "link": "shopify://collections/ragi-chips",
+            "link_label": "Shop Ragi"
+          }
+        },
+        "combos": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/50g-makhana-4-pack.jpg",
+            "tag": "03 — Combos",
+            "title": "Sampler Packs",
+            "link": "shopify://collections/sampler-packs",
+            "link_label": "Shop combos"
           }
         }
       },
-      "block_order": [
-        "heading",
-        "button"
-      ],
+      "block_order": ["makhana", "ragi", "combos"],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "color_scheme": "scheme-1",
+        "eyebrow": "Pick your crunch",
+        "heading": "Shop by craving",
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "bestsellers": {
+      "type": "bestsellers-carousel",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
+        "color_scheme": "scheme-1",
+        "eyebrow": "Fan favourites",
+        "heading": "Bestsellers",
+        "collection": "makhana-chips",
         "products_to_show": 8,
         "columns_desktop": 4,
+        "quick_add": "standard",
+        "view_all_link": "shopify://collections/all",
+        "view_all_label": "View all",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "why_chakhana": {
+      "type": "why-chakhana",
+      "blocks": {
+        "p1": {
+          "type": "point",
+          "settings": {
+            "icon": "icon-fire.svg",
+            "title": "Flavour-first",
+            "text": "Masaledar, chatpata, never bland — every flavour is built to crave."
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "icon": "icon-leaf.svg",
+            "title": "Makhana & ragi",
+            "text": "Roasted fox nut and finger millet, seasoned generously."
+          }
+        },
+        "p3": {
+          "type": "point",
+          "settings": {
+            "icon": "icon-lightning-bolt.svg",
+            "title": "Built for the 4pm slump",
+            "text": "Resealable pouches, ready whenever the craving hits."
+          }
+        }
+      },
+      "block_order": ["p1", "p2", "p3"],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "eyebrow": "Why Chakhana",
+        "heading": "Big crunch. Better ingredients. Zero boring.",
+        "text": "<p>We roast, we season properly, and we don't do bland. That's the whole pitch.</p>",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "flavour_universe": {
+      "type": "flavour-universe",
+      "blocks": {
+        "masala": {
+          "type": "flavour",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "name": "Masala",
+            "tagline": "Chatpate toh sab hai!!!",
+            "description": "<p>Our OG flavour — a masaledar, chatpata blend of classic Indian spices on every roasted makhana bite.</p>",
+            "image": "shopify://shop_images/masala-makhana-100g.jpg",
+            "link": "shopify://collections/makhana-chips",
+            "link_label": "Shop Masala"
+          }
+        },
+        "peri_peri": {
+          "type": "flavour",
+          "settings": {
+            "color_scheme": "scheme-4",
+            "name": "Peri Peri",
+            "tagline": "Bhaiya thoda aur teeekha!!!!",
+            "description": "<p>For the ones who always ask for extra spicy — a fiery peri peri kick on every crunchy bite.</p>",
+            "image": "shopify://shop_images/peri-peri-makhana-100g.jpg",
+            "link": "shopify://collections/makhana-chips",
+            "link_label": "Shop Peri Peri"
+          }
+        },
+        "cream_onion": {
+          "type": "flavour",
+          "settings": {
+            "color_scheme": "scheme-5",
+            "name": "Cream & Onion",
+            "tagline": "Kuchu Puchu Keliye!!!!",
+            "description": "<p>Creamy, tangy, and impossible to put down — the classic cream &amp; onion crunch, makhana-style.</p>",
+            "image": "shopify://shop_images/cream-onion-makhana-100g.jpg",
+            "link": "shopify://collections/makhana-chips",
+            "link_label": "Shop Cream & Onion"
+          }
+        },
+        "cheese_herbs": {
+          "type": "flavour",
+          "settings": {
+            "color_scheme": "scheme-6",
+            "name": "Cheese & Herbs",
+            "tagline": "Cheese aeele pao gaya tha!!!!!",
+            "description": "<p>Cheesy, herby, endlessly moreish — for when only cheese will do.</p>",
+            "image": "shopify://shop_images/cheese-herbs-makhana-100g.jpg",
+            "link": "shopify://collections/makhana-chips",
+            "link_label": "Shop Cheese & Herbs"
+          }
+        }
+      },
+      "block_order": ["masala", "peri_peri", "cream_onion", "cheese_herbs"],
+      "settings": {
+        "eyebrow": "The flavour universe",
+        "heading": "Four flavours. Zero boring.",
+        "padding_top": 64
+      }
+    },
+    "makhana_story": {
+      "type": "editorial-story",
+      "blocks": {
+        "s1": { "type": "stat", "settings": { "value": "4", "label": "Flavours" } },
+        "s2": { "type": "stat", "settings": { "value": "50g / 100g", "label": "Pack sizes" } }
+      },
+      "block_order": ["s1", "s2"],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "layout": "default",
+        "image": "shopify://shop_images/masala-makhana-50g.jpg",
+        "badge_text": "Roasted not fried, not boring",
+        "badge_color_scheme": "scheme-6",
+        "eyebrow": "The makhana story",
+        "heading": "Not your dadi's plain roasted makhana",
+        "text": "<p>Makhana (fox nuts) have been a snack cupboard staple forever — usually plain, usually forgotten halfway through the bowl. We roast ours properly and season them like a real snack, in flavours worth reaching for again.</p>",
+        "link": "shopify://collections/makhana-chips",
+        "link_label": "Shop Makhana Chips",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "ragi_story": {
+      "type": "editorial-story",
+      "blocks": {
+        "s1": { "type": "stat", "settings": { "value": "2", "label": "Flavours" } },
+        "s2": { "type": "stat", "settings": { "value": "50g / 100g", "label": "Pack sizes" } }
+      },
+      "block_order": ["s1", "s2"],
+      "settings": {
+        "color_scheme": "scheme-5",
+        "layout": "reverse",
+        "image": "shopify://shop_images/masala-ragi-chips-50g.jpg",
+        "badge_text": "Your millet snack, minus the boring",
+        "badge_color_scheme": "scheme-4",
+        "eyebrow": "Ragi, reintroduced",
+        "heading": "Replacing your boring ragi chips",
+        "text": "<p>Ragi (finger millet) chips had a reputation problem: healthy, sure, but forgettable. We kept the ragi, ditched the boring — seasoned generously, built for the 4pm crunch craving.</p>",
+        "link": "shopify://collections/ragi-chips",
+        "link_label": "Shop Ragi Chips",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "combo_builder": {
+      "type": "combo-builder",
+      "blocks": {
+        "c1": { "type": "flavour_chip", "settings": { "flavour": "Masala", "color_scheme": "scheme-3" } },
+        "c2": { "type": "flavour_chip", "settings": { "flavour": "Peri Peri", "color_scheme": "scheme-4" } },
+        "c3": { "type": "flavour_chip", "settings": { "flavour": "Cream & Onion", "color_scheme": "scheme-5" } },
+        "c4": { "type": "flavour_chip", "settings": { "flavour": "Cheese & Herbs", "color_scheme": "scheme-6" } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"],
+      "settings": {
         "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "eyebrow": "Can't decide?",
+        "heading": "Build your crunch",
+        "text": "<p>All four Chakhana makhana flavours in one pack. The easiest way to find your favourite — spoiler, you'll like all four.</p>",
+        "image": "shopify://shop_images/100g-makhana-4-pack.jpg",
+        "link": "shopify://collections/sampler-packs",
+        "link_label": "Shop the sampler",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Genuinely can't stop at one pouch. The masala flavour is unreal.",
+            "name": "Demo reviewer",
+            "demo_tag": "Demo review"
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Finally a ragi chip that doesn't taste like cardboard.",
+            "name": "Demo reviewer",
+            "demo_tag": "Demo review"
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "quote": "Peri Peri lives up to \"bhaiya thoda aur teekha.\" Respect.",
+            "name": "Demo reviewer",
+            "demo_tag": "Demo review"
+          }
+        }
+      },
+      "block_order": ["r1", "r2", "r3"],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "eyebrow": "Word on the street",
+        "heading": "People who've chakha-ed",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "ugc_grid": {
+      "type": "ugc-grid",
+      "blocks": {
+        "t1": { "type": "tile", "settings": { "image": "shopify://shop_images/masala-makhana-50g.jpg" } },
+        "t2": { "type": "tile", "settings": { "image": "shopify://shop_images/peri-peri-makhana-50g.jpg" } },
+        "t3": { "type": "tile", "settings": { "image": "shopify://shop_images/cream-onion-makhana-50g.jpg" } },
+        "t4": { "type": "tile", "settings": { "image": "shopify://shop_images/cheese-herbs-makhana-50g.jpg" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "eyebrow": "As seen on your feed",
+        "heading": "Snack of choice",
+        "instagram_handle": "",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "final_cta": {
+      "type": "final-cta",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "eyebrow": "Okay.",
+        "heading": "Ab chakh ke dekh.",
+        "text": "<p>Crunchy makhana and ragi chips, seasoned properly.</p>",
+        "button_label": "Shop Chakhana",
+        "button_link": "shopify://collections/all",
+        "padding_top": 96,
+        "padding_bottom": 96
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "hero",
+    "marquee",
+    "shop_by_craving",
+    "bestsellers",
+    "why_chakhana",
+    "flavour_universe",
+    "makhana_story",
+    "ragi_story",
+    "combo_builder",
+    "testimonials",
+    "ugc_grid",
+    "final_cta"
   ]
 }

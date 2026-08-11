@@ -1,0 +1,4 @@
+# Source material staged for manual upload via Shopify Admin → Content → Files
+# (see SETUP.md §1) — not valid theme assets (Shopify rejects subfolders under
+# assets/), so keep them out of `shopify theme push`.
+assets/product-images/*

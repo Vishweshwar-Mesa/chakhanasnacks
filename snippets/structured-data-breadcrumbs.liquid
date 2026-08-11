@@ -1,0 +1,60 @@
+{% comment %}
+  BreadcrumbList JSON-LD for product and collection pages.
+
+  Usage:
+  {% render 'structured-data-breadcrumbs' %}
+{% endcomment %}
+{%- assign site_url = request.origin | append: routes.root_url -%}
+{%- if request.page_type == 'product' -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": {{ 'Home' | json }},
+          "item": {{ site_url | json }}
+        }
+        {%- if product.collections.first != blank -%}
+          ,
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": {{ product.collections.first.title | json }},
+            "item": {{ product.collections.first.url | prepend: request.origin | json }}
+          }
+        {%- endif -%}
+        ,
+        {
+          "@type": "ListItem",
+          "position": {% if product.collections.first != blank %}3{% else %}2{% endif %},
+          "name": {{ product.title | json }},
+          "item": {{ product.url | prepend: request.origin | json }}
+        }
+      ]
+    }
+  </script>
+{%- elsif request.page_type == 'collection' -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": {{ 'Home' | json }},
+          "item": {{ site_url | json }}
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ collection.title | json }},
+          "item": {{ collection.url | prepend: request.origin | json }}
+        }
+      ]
+    }
+  </script>
+{%- endif -%}

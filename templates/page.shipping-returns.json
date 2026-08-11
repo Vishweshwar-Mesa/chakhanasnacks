@@ -1,0 +1,61 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
+    },
+    "info": {
+      "type": "multicolumn",
+      "blocks": {
+        "col_1": {
+          "type": "column",
+          "settings": {
+            "title": "Shipping",
+            "text": "<p>We ship pan-India. Orders are typically packed and handed to our courier partner within 1-2 business days; delivery timelines depend on your location and are shown at checkout.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "col_2": {
+          "type": "column",
+          "settings": {
+            "title": "Returns",
+            "text": "<p>As this is a food product, we're unable to accept returns once a pack has been opened. If anything arrives damaged, incorrect, or expired, contact us within 48 hours of delivery and we'll sort it out.</p>",
+            "link_label": "Contact us",
+            "link": "/pages/contact"
+          }
+        },
+        "col_3": {
+          "type": "column",
+          "settings": {
+            "title": "Order support",
+            "text": "<p>Questions about an order in transit, or anything else? Reach out via our contact page and we'll get back to you as soon as we can.</p>",
+            "link_label": "Get in touch",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["col_1", "col_2", "col_3"],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_desktop": 3,
+        "column_alignment_mobile": "left",
+        "columns_mobile": "1",
+        "padding_top": 48,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": ["banner", "info"]
+}

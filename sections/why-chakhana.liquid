@@ -1,0 +1,175 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .chk-why-grid {
+    display: grid;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+  }
+
+  @media screen and (min-width: 750px) {
+    .chk-why-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+  }
+
+  .chk-why-point {
+    padding: var(--space-4);
+    border-radius: var(--radius-editorial);
+    background: rgba(var(--color-foreground), 0.04);
+  }
+
+  .chk-why-point__icon {
+    width: 4.4rem;
+    height: 4.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
+    margin-bottom: var(--space-3);
+  }
+
+  .chk-why-point__icon svg {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .chk-why-point__title {
+    font-size: 1.9rem;
+    margin: 0 0 var(--space-1);
+  }
+
+  .chk-why-point__text {
+    opacity: 0.8;
+    margin: 0;
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="chk-reveal">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="chk-eyebrow">{{ section.settings.eyebrow | escape }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="chk-display chk-display--lg">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="chk-lede rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="chk-why-grid">
+      {%- for block in section.blocks -%}
+        <div class="chk-why-point chk-reveal" style="--chk-stagger: {{ forloop.index0 }};" {{ block.shopify_attributes }}>
+          <span class="chk-why-point__icon" aria-hidden="true">
+            {{ block.settings.icon | default: 'icon-fire.svg' | inline_asset_content }}
+          </span>
+          <h3 class="chk-why-point__title">{{ block.settings.title | escape }}</h3>
+          <p class="chk-why-point__text">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Why Chakhana",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-7"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Why Chakhana"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Big crunch. Better ingredients. Zero boring."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Supporting text",
+      "default": "<p>We roast, we season properly, and we don't do bland. That's the whole pitch.</p>"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Point",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "icon-fire.svg",
+          "options": [
+            { "value": "icon-fire.svg", "label": "Fire" },
+            { "value": "icon-leaf.svg", "label": "Leaf" },
+            { "value": "icon-pepper.svg", "label": "Pepper" },
+            { "value": "icon-lightning-bolt.svg", "label": "Lightning" },
+            { "value": "icon-heart.svg", "label": "Heart" },
+            { "value": "icon-serving-dish.svg", "label": "Serving dish" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Flavour-first" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Seasoned properly, not an afterthought." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Chakhana",
+      "blocks": [
+        { "type": "point", "settings": { "icon": "icon-fire.svg", "title": "Flavour-first", "text": "Masaledar, chatpata, never bland — every flavour is built to crave." } },
+        { "type": "point", "settings": { "icon": "icon-leaf.svg", "title": "Makhana & ragi", "text": "Roasted fox nut and finger millet, not fried filler." } },
+        { "type": "point", "settings": { "icon": "icon-lightning-bolt.svg", "title": "Built for the 4pm slump", "text": "Resealable pouches, ready whenever the craving hits." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,225 @@
+{%- style -%}
+  .chk-flavour-universe {
+    position: relative;
+  }
+
+  .chk-flavour-panel {
+    display: flex;
+    align-items: center;
+    min-height: 72vh;
+    padding: var(--space-6) 0;
+    scroll-margin-top: 4rem;
+  }
+
+  .chk-flavour-panel__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    align-items: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .chk-flavour-panel__inner {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+    }
+
+    .chk-flavour-panel:nth-child(even) .chk-flavour-panel__media {
+      order: 2;
+    }
+  }
+
+  .chk-flavour-panel__media img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-editorial);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .chk-flavour-panel__media img {
+      transform: scale(0.94);
+      opacity: 0;
+      transition:
+        transform var(--duration-slow) var(--ease-out-expo),
+        opacity var(--duration-slow) var(--ease-out-expo);
+    }
+
+    .chk-flavour-panel.is-active .chk-flavour-panel__media img {
+      transform: none;
+      opacity: 1;
+    }
+  }
+
+  .chk-flavour-panel__tag {
+    font-style: italic;
+    opacity: 0.85;
+    margin: var(--space-2) 0 var(--space-3);
+  }
+
+  .chk-flavour-panel__name {
+    font-size: clamp(3.2rem, 5vw + 1rem, 6.4rem);
+  }
+
+  .chk-flavour-nav {
+    display: none;
+  }
+
+  @media screen and (min-width: 990px) {
+    .chk-flavour-nav {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      position: sticky;
+      top: 50%;
+      transform: translateY(-50%);
+      float: right;
+      margin-right: var(--space-4);
+      z-index: 2;
+    }
+
+    .chk-flavour-nav__item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body-family);
+      font-size: 1.3rem;
+      opacity: 0.5;
+      padding: 0.4rem 0;
+    }
+
+    .chk-flavour-nav__dot {
+      width: 0.9rem;
+      height: 0.9rem;
+      border-radius: 50%;
+      border: 0.15rem solid currentColor;
+      flex-shrink: 0;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .chk-flavour-nav__item {
+        transition: opacity var(--duration-fast) var(--ease-standard);
+      }
+
+      .chk-flavour-nav__dot {
+        transition: background var(--duration-fast) var(--ease-standard);
+      }
+    }
+
+    .chk-flavour-nav__item.is-active {
+      opacity: 1;
+      font-weight: 700;
+    }
+
+    .chk-flavour-nav__item.is-active .chk-flavour-nav__dot {
+      background: currentColor;
+    }
+  }
+{%- endstyle -%}
+
+<div class="chk-flavour-universe" id="flavour-universe" data-flavour-universe>
+  {%- if section.settings.heading != blank -%}
+    <div class="page-width chk-reveal" style="padding-top: {{ section.settings.padding_top }}px;">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="chk-eyebrow">{{ section.settings.eyebrow | escape }}</span>
+      {%- endif -%}
+      <h2 class="chk-display chk-display--lg">{{ section.settings.heading }}</h2>
+    </div>
+  {%- endif -%}
+
+  <nav class="chk-flavour-nav" aria-label="Jump to flavour">
+    {%- for block in section.blocks -%}
+      <button type="button" class="chk-flavour-nav__item" data-flavour-nav-item data-target="chk-flavour-{{ block.id }}">
+        <span class="chk-flavour-nav__dot" aria-hidden="true"></span>
+        {{ block.settings.name | escape }}
+      </button>
+    {%- endfor -%}
+  </nav>
+
+  {%- for block in section.blocks -%}
+    <div
+      id="chk-flavour-{{ block.id }}"
+      class="chk-flavour-panel color-{{ block.settings.color_scheme }} gradient"
+      data-flavour-panel
+      {{ block.shopify_attributes }}
+    >
+      <div class="page-width chk-flavour-panel__inner">
+        <div class="chk-flavour-panel__media">
+          {%- if block.settings.image != blank -%}
+            {{
+              block.settings.image
+              | image_url: width: 900
+              | image_tag: loading: 'lazy', widths: '450, 675, 900', sizes: '(min-width: 750px) 45vw, 90vw', alt: block.settings.name | append: ' pack' | escape
+            }}
+          {%- endif -%}
+        </div>
+        <div class="chk-flavour-panel__content">
+          <h3 class="chk-flavour-panel__name chk-display">{{ block.settings.name | escape }}</h3>
+          {%- if block.settings.tagline != blank -%}
+            <p class="chk-flavour-panel__tag">&ldquo;{{ block.settings.tagline | escape }}&rdquo;</p>
+          {%- endif -%}
+          {%- if block.settings.description != blank -%}
+            <p class="chk-lede">{{ block.settings.description }}</p>
+          {%- endif -%}
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" class="button" style="margin-top: var(--space-3);">
+              {{ block.settings.link_label | default: 'Shop this flavour' }}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  {%- endfor -%}
+</div>
+
+<script src="{{ 'chakhana-flavour-universe.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Flavour universe",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The flavour universe" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Four flavours. Zero boring." },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "flavour",
+      "name": "Flavour",
+      "settings": [
+        { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-3" },
+        { "type": "text", "id": "name", "label": "Flavour name", "default": "Masala" },
+        { "type": "text", "id": "tagline", "label": "Tagline (from packaging)", "default": "Chatpate toh sab hai!!!" },
+        { "type": "richtext", "id": "description", "label": "Description" },
+        { "type": "image_picker", "id": "image", "label": "Pack image" },
+        { "type": "url", "id": "link", "label": "Product link" },
+        { "type": "text", "id": "link_label", "label": "Link label", "default": "Shop Masala" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Flavour universe",
+      "blocks": [
+        { "type": "flavour", "settings": { "color_scheme": "scheme-3", "name": "Masala", "tagline": "Chatpate toh sab hai!!!" } },
+        { "type": "flavour", "settings": { "color_scheme": "scheme-4", "name": "Peri Peri", "tagline": "Bhaiya thoda aur teeekha!!!!" } },
+        { "type": "flavour", "settings": { "color_scheme": "scheme-5", "name": "Cream & Onion", "tagline": "Kuchu Puchu Keliye!!!!" } },
+        { "type": "flavour", "settings": { "color_scheme": "scheme-6", "name": "Cheese & Herbs", "tagline": "Cheese aeele pao gaya tha!!!!!" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

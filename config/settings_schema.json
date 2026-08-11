@@ -1449,6 +1449,44 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-1"
+      },
+      {
+        "type": "header",
+        "content": "Free shipping progress bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "free_shipping_bar_enable",
+        "label": "Show free shipping progress bar in cart drawer",
+        "default": true
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free shipping threshold",
+        "info": "In your store's currency major unit (e.g. rupees), no symbol. Example: 499",
+        "default": 499
+      }
+    ]
+  },
+  {
+    "name": "Analytics",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Shopify's built-in analytics and any sales channel pixels (Settings → Customer events / Google & YouTube / Meta & Instagram apps) are the recommended way to track this store — they use Shopify's Web Pixels sandbox and don't need theme code. Only fill these in if you specifically need GA4 or Meta Pixel loaded directly by the theme; leave blank otherwise. See SHOPIFY_SETUP.md for guidance."
+      },
+      {
+        "type": "text",
+        "id": "ga4_measurement_id",
+        "label": "GA4 measurement ID",
+        "info": "Format: G-XXXXXXXXXX. Leave blank to skip."
+      },
+      {
+        "type": "text",
+        "id": "meta_pixel_id",
+        "label": "Meta Pixel ID",
+        "info": "Numeric pixel ID. Leave blank to skip."
       }
     ]
   }

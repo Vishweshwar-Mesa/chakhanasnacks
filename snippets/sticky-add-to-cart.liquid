@@ -1,0 +1,26 @@
+{% comment %}
+  Renders a mobile-only sticky add-to-cart bar for the PDP. Never duplicates
+  cart logic: the button simply clicks the real, already-wired submit button
+  from snippets/buy-buttons.liquid (#ProductSubmitButton-{{ section.id }}),
+  and mirrors that button's price/availability state via chakhana-sticky-atc.js.
+
+  Accepts:
+  - product: {Object} Product Liquid object
+  - section: {Object} Section Liquid object (must render buy-buttons with the same section.id)
+{% endcomment %}
+<div class="chk-sticky-atc" data-chk-sticky-atc data-section-id="{{ section.id }}" hidden>
+  <div class="chk-sticky-atc__media">
+    {%- if product.featured_media != blank -%}
+      {{ product.featured_media | image_url: width: 100 | image_tag: loading: 'lazy', widths: '50, 100', alt: '' }}
+    {%- endif -%}
+  </div>
+  <div class="chk-sticky-atc__info">
+    <span class="chk-sticky-atc__title">{{ product.title | escape }}</span>
+    <span class="chk-sticky-atc__price" data-chk-sticky-atc-price>
+      {%- render 'price', product: product, use_variant: true -%}
+    </span>
+  </div>
+  <button type="button" class="button" data-chk-sticky-atc-button>
+    {{ 'products.product.add_to_cart' | t }}
+  </button>
+</div>

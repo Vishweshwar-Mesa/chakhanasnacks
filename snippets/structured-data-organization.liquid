@@ -1,0 +1,30 @@
+{% comment %}
+  Site-wide Organization JSON-LD. Only includes fields that are actually
+  configured (logo, social links) — no invented data.
+
+  Usage:
+  {% render 'structured-data-organization' %}
+{% endcomment %}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    "url": {{ request.origin | append: routes.root_url | json }}
+    {%- if settings.logo != blank -%}
+      , "logo": {{ settings.logo | image_url: width: 512 | prepend: 'https:' | json }}
+    {%- endif -%}
+    {%- capture social_urls -%}
+      {%- if settings.social_instagram_link != blank -%}{{ settings.social_instagram_link | json }},{%- endif -%}
+      {%- if settings.social_facebook_link != blank -%}{{ settings.social_facebook_link | json }},{%- endif -%}
+      {%- if settings.social_twitter_link != blank -%}{{ settings.social_twitter_link | json }},{%- endif -%}
+      {%- if settings.social_youtube_link != blank -%}{{ settings.social_youtube_link | json }},{%- endif -%}
+      {%- if settings.social_tiktok_link != blank -%}{{ settings.social_tiktok_link | json }},{%- endif -%}
+      {%- if settings.social_pinterest_link != blank -%}{{ settings.social_pinterest_link | json }},{%- endif -%}
+    {%- endcapture -%}
+    {%- assign social_urls = social_urls | strip | remove_last: ',' -%}
+    {%- if social_urls != blank -%}
+      , "sameAs": [{{ social_urls }}]
+    {%- endif -%}
+  }
+</script>

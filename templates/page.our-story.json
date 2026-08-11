@@ -1,0 +1,85 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
+    },
+    "story": {
+      "type": "editorial-story",
+      "blocks": {
+        "s1": { "type": "stat", "settings": { "value": "2024", "label": "Started with a craving" } },
+        "s2": { "type": "stat", "settings": { "value": "6", "label": "Flavours, so far" } }
+      },
+      "block_order": ["s1", "s2"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "layout": "default",
+        "image": "shopify://shop_images/100g-makhana-4-pack.jpg",
+        "badge_text": "Humara snacks, chakha na?",
+        "badge_color_scheme": "scheme-6",
+        "eyebrow": "Our story",
+        "heading": "Makhana is everywhere. Chakhana isn't.",
+        "text": "<p>Plain roasted makhana is easy to find. Tasty, trustworthy makhana chips aren't — and ragi snacks were stuck being the \"healthy but boring\" option. We wanted something people would actually crave at 4pm, not just tolerate because it's better for you.</p><p>So we built Chakhana: roasted makhana and ragi chips, seasoned properly, in flavours worth reaching for again — Masala, Peri Peri, Cream &amp; Onion and Cheese &amp; Herbs on the makhana side, Masala and Peri Peri on ragi.</p>",
+        "link": "shopify://collections/all",
+        "link_label": "Shop Chakhana",
+        "padding_top": 48,
+        "padding_bottom": 72
+      }
+    },
+    "why": {
+      "type": "why-chakhana",
+      "blocks": {
+        "p1": {
+          "type": "point",
+          "settings": {
+            "icon": "icon-fire.svg",
+            "title": "Flavour-first",
+            "text": "Every flavour is seasoned to be craveable, not just \"healthy.\""
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "icon": "icon-leaf.svg",
+            "title": "Makhana & ragi",
+            "text": "Roasted fox nut and finger millet — snacks with real substance."
+          }
+        },
+        "p3": {
+          "type": "point",
+          "settings": {
+            "icon": "icon-heart.svg",
+            "title": "Built by snackers",
+            "text": "We're a small team getting this off the ground one honest batch at a time."
+          }
+        }
+      },
+      "block_order": ["p1", "p2", "p3"],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "eyebrow": "Why we started",
+        "heading": "Better-for-you crunch, without the boring",
+        "text": "<p>Thanks for chakha-ing with us.</p>",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "cta": {
+      "type": "final-cta",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "eyebrow": "Okay.",
+        "heading": "Ab chakh ke dekh.",
+        "text": "<p>Crunchy makhana and ragi chips, seasoned properly.</p>",
+        "button_label": "Shop Chakhana",
+        "button_link": "shopify://collections/all",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": ["banner", "story", "why", "cta"]
+}

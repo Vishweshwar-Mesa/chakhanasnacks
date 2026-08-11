@@ -36,6 +36,36 @@
         "description": {
           "type": "description"
         },
+        "ingredients_tab": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Ingredients & storage",
+            "icon": "leaf",
+            "content": "<p>Made with roasted makhana (fox nuts) or ragi (finger millet), a seasoning blend, and edible oil. Full ingredient list and nutritional information are printed on pack.</p><p>Store in a cool, dry place away from direct sunlight. Reseal the pouch after opening to keep the crunch.</p>"
+          }
+        },
+        "shipping_tab": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & returns",
+            "icon": "truck",
+            "content": "<p>We ship pan-India. As this is a food product, we're unable to accept returns once a pack has been opened — message us if anything arrives damaged and we'll sort it out.</p>"
+          }
+        },
+        "nutrition_facts": {
+          "type": "nutrition_facts",
+          "settings": {
+            "heading": "Nutrition & ingredients"
+          }
+        },
+        "faq_tab": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Questions? Answered.",
+            "icon": "chat_bubble",
+            "content": "<p><strong>How spicy is this?</strong> Check the flavour name — Peri Peri packs the most heat, Masala is chatpata-medium, Cream & Onion and Cheese & Herbs are mild.</p><p><strong>Which size should I get?</strong> 50g is a quick solo craving; 100g is for sharing (or not).</p><p><strong>How long does a pack stay fresh once opened?</strong> Reseal the pouch tightly and finish within a few days for the best crunch.</p>"
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -51,6 +81,10 @@
         "quantity_selector",
         "buy_buttons",
         "description",
+        "ingredients_tab",
+        "shipping_tab",
+        "nutrition_facts",
+        "faq_tab",
         "share"
       ],
       "settings": {

@@ -1,0 +1,67 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
+    },
+    "faqs": {
+      "type": "faq-accordion",
+      "blocks": {
+        "q1": {
+          "type": "faq",
+          "settings": {
+            "question": "What is Chakhana made from?",
+            "answer": "<p>Our Makhana Chips are roasted makhana (fox nuts), seasoned generously. Our Ragi Chips are made with ragi (finger millet), seasoned the same way. Full ingredient details are on the product page and printed on every pack.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq",
+          "settings": {
+            "question": "How spicy is the Peri Peri flavour?",
+            "answer": "<p>Noticeably spicier than Masala — built for people who ask for extra chilli. Cream &amp; Onion and Cheese &amp; Herbs are mild.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq",
+          "settings": {
+            "question": "What sizes are available?",
+            "answer": "<p>Every flavour comes in 50g (quick solo craving) and 100g (for sharing, or not) resealable pouches.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you ship pan-India?",
+            "answer": "<p>Yes — see our <a href=\"/pages/shipping-returns\">Shipping &amp; Returns</a> page for delivery timelines and our policy on opened packs.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq",
+          "settings": {
+            "question": "How should I store an opened pack?",
+            "answer": "<p>Reseal the pouch tightly after opening and keep it in a cool, dry place away from direct sunlight to keep the crunch.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq",
+          "settings": {
+            "question": "I have another question — how do I reach you?",
+            "answer": "<p>Head to our <a href=\"/pages/contact\">Contact</a> page and send us a message — we read every one.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "eyebrow": "Questions? Answered.",
+        "heading": "FAQ",
+        "padding_top": 36,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": ["banner", "faqs"]
+}

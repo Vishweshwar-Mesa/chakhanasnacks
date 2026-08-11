@@ -1,0 +1,47 @@
+{% comment %}
+  Optional direct GA4 / Meta Pixel loading, only when a merchant fills in the
+  corresponding Theme settings → Analytics field. Shopify's native Web
+  Pixels (Settings → Customer events, or the Google/Meta sales channel apps)
+  are the recommended path and need no theme code at all — this snippet only
+  exists for merchants who specifically want a directly-loaded tag as well.
+  Never hardcode an ID here; see SHOPIFY_SETUP.md.
+
+  Usage:
+  {% render 'analytics-hooks' %}
+{% endcomment %}
+{%- if settings.ga4_measurement_id != blank -%}
+  {% comment %}theme-check-disable RemoteAsset{% endcomment %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ settings.ga4_measurement_id }}"></script>
+  {% comment %}theme-check-enable RemoteAsset{% endcomment %}
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', '{{ settings.ga4_measurement_id }}');
+  </script>
+{%- endif -%}
+
+{%- if settings.meta_pixel_id != blank -%}
+  <script>
+    !(function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = '2.0';
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '{{ settings.meta_pixel_id }}');
+    fbq('track', 'PageView');
+  </script>
+{%- endif -%}
