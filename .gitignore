@@ -13,3 +13,8 @@ node_modules
 
 # Local Claude Code tool config (not project source)
 .claude/
+
+# Non-asset reference files that sometimes land in assets/product-images/
+assets/product-images/*.pdf
+assets/product-images/*.psd
+assets/product-images/*.ai
