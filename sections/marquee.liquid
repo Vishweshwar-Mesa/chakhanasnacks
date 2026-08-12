@@ -9,13 +9,13 @@
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: -0.01em;
-    font-size: {{ section.settings.font_size | divided_by: 10.0 }}rem;
+    font-size: {{ section.settings.font_size }}px;
     white-space: nowrap;
   }
 
   .section-{{ section.id }} .chk-marquee__divider {
-    width: {{ section.settings.font_size | divided_by: 20.0 }}rem;
-    height: {{ section.settings.font_size | divided_by: 20.0 }}rem;
+    width: {{ section.settings.font_size | divided_by: 8.0 }}px;
+    height: {{ section.settings.font_size | divided_by: 8.0 }}px;
     border-radius: 50%;
     background: currentColor;
     flex-shrink: 0;
@@ -23,7 +23,7 @@
 
   @media screen and (max-width: 749px) {
     .section-{{ section.id }} .chk-marquee__item {
-      font-size: {{ section.settings.font_size | times: 0.5 | divided_by: 10.0 }}rem;
+      font-size: {{ section.settings.font_size | times: 0.5 }}px;
     }
   }
 {%- endstyle -%}
@@ -58,12 +58,12 @@
     {
       "type": "range",
       "id": "font_size",
-      "min": 200,
-      "max": 700,
-      "step": 10,
+      "min": 32,
+      "max": 160,
+      "step": 4,
       "unit": "px",
       "label": "Text size",
-      "default": 480
+      "default": 88
     },
     {
       "type": "range",

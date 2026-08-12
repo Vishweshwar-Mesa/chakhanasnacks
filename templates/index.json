@@ -46,9 +46,9 @@
       "block_order": ["w1", "w2", "w3", "w4", "w5", "w6"],
       "settings": {
         "color_scheme": "scheme-3",
-        "font_size": 420,
-        "padding_top": 28,
-        "padding_bottom": 28,
+        "font_size": 72,
+        "padding_top": 20,
+        "padding_bottom": 20,
         "aria_label": "Brand marquee: Makhana, Ragi, Crunch, Masala, Peri Peri, Chakhana"
       }
     },
