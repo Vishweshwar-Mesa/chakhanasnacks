@@ -185,7 +185,7 @@
 
 /* Wordmark (no logo image uploaded yet — style the shop-name fallback text) */
 .header__heading-link .h2 {
-  font-family: 'Bagel Fat One', var(--font-heading-family);
+  font-family: 'Luckiest Guy', var(--font-heading-family);
   font-weight: 400;
   letter-spacing: -0.01em;
   text-transform: uppercase;
