@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -36,7 +45,7 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "height": 72,
+        "height": 70,
         "eyebrow": "Fried. Seasoned. Not boring.",
         "heading": "Snacking just got a lot more Chakhana.",
         "text": "<p>Makhana &amp; ragi chips made for cravings that refuse to be boring.</p>",
