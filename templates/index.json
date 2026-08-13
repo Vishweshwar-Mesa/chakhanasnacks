@@ -313,24 +313,6 @@
         "padding_bottom": 64
       }
     },
-    "ugc_grid": {
-      "type": "ugc-grid",
-      "blocks": {
-        "t1": { "type": "tile", "settings": { "image": "shopify://shop_images/masala-makhana-50g.jpg" } },
-        "t2": { "type": "tile", "settings": { "image": "shopify://shop_images/peri-peri-makhana-50g.jpg" } },
-        "t3": { "type": "tile", "settings": { "image": "shopify://shop_images/cream-onion-makhana-50g.jpg" } },
-        "t4": { "type": "tile", "settings": { "image": "shopify://shop_images/cheese-herbs-makhana-50g.jpg" } }
-      },
-      "block_order": ["t1", "t2", "t3", "t4"],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "eyebrow": "As seen on your feed",
-        "heading": "Snack of choice",
-        "instagram_handle": "",
-        "padding_top": 64,
-        "padding_bottom": 64
-      }
-    },
     "final_cta": {
       "type": "final-cta",
       "settings": {
@@ -356,7 +338,6 @@
     "makhana_story",
     "ragi_story",
     "testimonials",
-    "ugc_grid",
     "final_cta"
   ]
 }
