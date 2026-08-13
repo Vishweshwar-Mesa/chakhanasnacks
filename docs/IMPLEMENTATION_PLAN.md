@@ -2,7 +2,7 @@
 
 ## 1. What this is
 
-Chakhana sells roasted makhana (fox nut) and ragi (finger millet) chips in four and two flavours respectively, each in 50g/100g resealable pouches, plus sampler packs. Brand tone: bold, young, Hinglish-aware, premium — not clinical health food. This document is the architecture record for turning the storefront into a genuinely custom Online Store 2.0 theme instead of a reconfigured stock theme.
+Chakhana sells fried makhana (fox nut) and ragi (finger millet) chips in four and two flavours respectively, each in 50g/100g resealable pouches, plus sampler packs. Brand tone: bold, young, Hinglish-aware, premium — not clinical health food. This document is the architecture record for turning the storefront into a genuinely custom Online Store 2.0 theme instead of a reconfigured stock theme.
 
 ## 2. Starting state (audited before building)
 
