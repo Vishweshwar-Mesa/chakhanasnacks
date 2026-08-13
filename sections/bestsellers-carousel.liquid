@@ -23,6 +23,37 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Equal-height cards: titles of varying length shouldn't knock the
+     price/button row out of alignment across a row of cards. */
+  .section-{{ section.id }}-padding .grid__item {
+    display: flex;
+  }
+
+  .section-{{ section.id }}-padding .card-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .section-{{ section.id }}-padding .card-wrapper > .card__content:last-child {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .section-{{ section.id }}-padding .card__heading {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.6em;
+  }
+
+  .section-{{ section.id }}-padding .quick-add {
+    margin-top: auto;
+    padding-top: var(--space-2);
+  }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
