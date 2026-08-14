@@ -46,7 +46,7 @@
       "settings": {
         "color_scheme": "scheme-1",
         "height": 70,
-        "eyebrow": "Fried. Seasoned. Not boring.",
+        "eyebrow": "The next better-for-you snack.",
         "heading": "Snacking just got a lot more Chakhana.",
         "text": "<p>Makhana &amp; ragi chips made for cravings that refuse to be boring.</p>",
         "button_label": "Shop the crunch",
@@ -190,7 +190,7 @@
           "settings": {
             "icon": "icon-leaf.svg",
             "title": "Makhana & ragi",
-            "text": "Fried fox nut and finger millet, seasoned generously."
+            "text": "Real fox nut and finger millet, seasoned generously — a better-for-you snack."
           }
         },
         "p3": {
@@ -220,7 +220,7 @@
         "color_scheme": "scheme-7",
         "eyebrow": "Why Chakhana",
         "heading": "Big crunch. Better ingredients. Zero boring.",
-        "text": "<p>We fry it right, we season properly, and we don't do bland. That's the whole pitch.</p>",
+        "text": "<p>We make it right, we season properly, and we don't do bland. That's the whole pitch.</p>",
         "padding_top": 52,
         "padding_bottom": 52
       }
@@ -234,7 +234,7 @@
             "color_scheme": "scheme-3",
             "name": "Masala",
             "tagline": "Chatpate toh sab hai!!!",
-            "description": "<p>Our OG flavour — a masaledar, chatpata blend of classic Indian spices on every crispy fried makhana bite.</p>",
+            "description": "<p>Our OG flavour — a masaledar, chatpata blend of classic Indian spices on every crispy makhana bite.</p>",
             "image": "shopify://shop_images/masala-makhana-100g.jpg",
             "link": "shopify://collections/makhana-chips",
             "link_label": "Shop Masala"
@@ -315,11 +315,11 @@
         "color_scheme": "scheme-2",
         "layout": "default",
         "image": "shopify://shop_images/masala-makhana-50g.jpg",
-        "badge_text": "Fried fresh, never boring",
+        "badge_text": "Better-for-you, never boring",
         "badge_color_scheme": "scheme-6",
         "eyebrow": "The makhana story",
         "heading": "Not your dadi's boring plain makhana",
-        "text": "<p>Makhana (fox nuts) have been a snack cupboard staple forever — usually plain, usually forgotten halfway through the bowl. We fry ours properly and season them like a real snack, in flavours worth reaching for again.</p>",
+        "text": "<p>Makhana (fox nuts) have been a snack cupboard staple forever — usually plain, usually forgotten halfway through the bowl. We season ours properly and keep it a better-for-you snack, in flavours worth reaching for again.</p>",
         "link": "shopify://collections/makhana-chips",
         "link_label": "Shop Makhana",
         "padding_top": 52,
