@@ -1,0 +1,8 @@
+{
+  "name": "chakhana-theme",
+  "private": true,
+  "description": "Dependency pin + source for vendored animation libraries used by this Shopify theme. This is not a build project: the theme has no bundler, so the relevant files from node_modules are copied into assets/ by hand (see assets/gsap.min.js, assets/ScrollTrigger.min.js) and loaded via plain <script> tags in layout/theme.liquid.",
+  "dependencies": {
+    "gsap": "^3.13.0"
+  }
+}

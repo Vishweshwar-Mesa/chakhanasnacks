@@ -77,6 +77,10 @@
     {%- endif -%}
     <script src="{{ 'chakhana-motion.js' | asset_url }}" defer="defer"></script>
 
+    <script src="{{ 'gsap.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'ScrollTrigger.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'chakhana-gsap.js' | asset_url }}" defer="defer"></script>
+
     {{ content_for_header }}
 
     {%- liquid
