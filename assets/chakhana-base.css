@@ -514,3 +514,26 @@
 .predictive-search__item:focus-visible {
   background: rgba(var(--color-foreground), 0.05);
 }
+
+/* ==========================================================================
+   Safari fixes
+   ========================================================================== */
+
+/* Safari rasterizes the .button box-shadow "border"/drop-shadow pseudo-
+   elements with a visible seam where the fully-rounded pill's straight edge
+   meets its curved cap. Promoting them to their own compositing layer
+   resolves it. @supports (-webkit-touch-callout: none) targets WebKit
+   (Safari/iOS) only. */
+@supports (-webkit-touch-callout: none) {
+  .button:before,
+  .button:after,
+  .shopify-challenge__button:before,
+  .shopify-challenge__button:after,
+  .customer button:before,
+  .customer button:after,
+  .shopify-payment-button__button--unbranded:before,
+  .shopify-payment-button__button--unbranded:after {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
