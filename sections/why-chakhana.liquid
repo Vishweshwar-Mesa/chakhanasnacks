@@ -19,7 +19,7 @@
 
   @media screen and (min-width: 750px) {
     .chk-why-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
       gap: var(--space-4);
     }
   }
@@ -154,7 +154,8 @@
             { "value": "icon-pepper.svg", "label": "Pepper" },
             { "value": "icon-lightning-bolt.svg", "label": "Lightning" },
             { "value": "icon-heart.svg", "label": "Heart" },
-            { "value": "icon-serving-dish.svg", "label": "Serving dish" }
+            { "value": "icon-serving-dish.svg", "label": "Serving dish" },
+            { "value": "icon-bottle.svg", "label": "Bottle" }
           ]
         },
         { "type": "text", "id": "title", "label": "Title", "default": "Flavour-first" },

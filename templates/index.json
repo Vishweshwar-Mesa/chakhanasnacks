@@ -119,7 +119,7 @@
           "settings": {
             "image": "shopify://shop_images/100g-makhana-4-pack.jpg",
             "tag": "01 — Makhana",
-            "title": "Makhana Chips",
+            "title": "Chips made from Makhana",
             "link": "shopify://collections/makhana-chips",
             "link_label": "Shop Makhana"
           }
@@ -129,7 +129,7 @@
           "settings": {
             "image": "shopify://shop_images/masala-ragi-chips-100g.jpg",
             "tag": "02 — Ragi",
-            "title": "Ragi Chips",
+            "title": "Chips made from Ragi",
             "link": "shopify://collections/ragi-chips",
             "link_label": "Shop Ragi"
           }
@@ -200,12 +200,21 @@
             "title": "Built for the 4pm slump",
             "text": "Resealable pouches, ready whenever the craving hits."
           }
+        },
+        "p4": {
+          "type": "point",
+          "settings": {
+            "icon": "icon-bottle.svg",
+            "title": "Pairs with everything",
+            "text": "Goes great with your food, even better with your drinks."
+          }
         }
       },
       "block_order": [
         "p1",
         "p2",
-        "p3"
+        "p3",
+        "p4"
       ],
       "settings": {
         "color_scheme": "scheme-7",
@@ -312,7 +321,7 @@
         "heading": "Not your dadi's boring plain makhana",
         "text": "<p>Makhana (fox nuts) have been a snack cupboard staple forever — usually plain, usually forgotten halfway through the bowl. We fry ours properly and season them like a real snack, in flavours worth reaching for again.</p>",
         "link": "shopify://collections/makhana-chips",
-        "link_label": "Shop Makhana Chips",
+        "link_label": "Shop Makhana",
         "padding_top": 52,
         "padding_bottom": 52
       }
@@ -349,7 +358,7 @@
         "heading": "Replacing your boring ragi chips",
         "text": "<p>Ragi (finger millet) chips had a reputation problem: healthy, sure, but forgettable. We kept the ragi, ditched the boring — seasoned generously, built for the 4pm crunch craving.</p>",
         "link": "shopify://collections/ragi-chips",
-        "link_label": "Shop Ragi Chips",
+        "link_label": "Shop Ragi",
         "padding_top": 52,
         "padding_bottom": 52
       }
