@@ -508,39 +508,39 @@
           </div>
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
-      </cart-drawer-items>
-      {%- if cart != empty and settings.cart_drawer_collection != blank -%}
-        {%- liquid
-          assign cart_product_ids = cart.items | map: 'product_id'
-          assign recommended_count = 0
-        -%}
-        {%- capture recommendations_markup -%}
-          {%- for product in settings.cart_drawer_collection.products -%}
-            {%- unless cart_product_ids contains product.id or recommended_count >= 3 -%}
-              {%- assign recommended_count = recommended_count | plus: 1 -%}
-              <li class="chk-cart-recommendations__item">
-                <a href="{{ product.url }}">
-                  {%- if product.featured_image != blank -%}
-                    {{ product.featured_image | image_url: width: 200 | image_tag: loading: 'lazy', widths: '100, 150, 200', alt: '' }}
-                  {%- endif -%}
-                  <span class="chk-cart-recommendations__item-title">{{ product.title | escape }}</span>
-                  <span class="chk-cart-recommendations__item-price">
-                    {%- render 'price', product: product -%}
-                  </span>
-                </a>
-              </li>
-            {%- endunless -%}
-          {%- endfor -%}
-        {%- endcapture -%}
-        {%- if recommended_count > 0 -%}
-          <div class="chk-cart-recommendations">
-            <p class="chk-cart-recommendations__heading">You might also like</p>
-            <ul class="chk-cart-recommendations__list" role="list">
-              {{ recommendations_markup }}
-            </ul>
-          </div>
+        {%- if cart != empty and settings.cart_drawer_collection != blank -%}
+          {%- liquid
+            assign cart_product_ids = cart.items | map: 'product_id'
+            assign recommended_count = 0
+          -%}
+          {%- capture recommendations_markup -%}
+            {%- for product in settings.cart_drawer_collection.products -%}
+              {%- unless cart_product_ids contains product.id or recommended_count >= 3 -%}
+                {%- assign recommended_count = recommended_count | plus: 1 -%}
+                <li class="chk-cart-recommendations__item">
+                  <a href="{{ product.url }}">
+                    {%- if product.featured_image != blank -%}
+                      {{ product.featured_image | image_url: width: 200 | image_tag: loading: 'lazy', widths: '100, 150, 200', alt: '' }}
+                    {%- endif -%}
+                    <span class="chk-cart-recommendations__item-title">{{ product.title | escape }}</span>
+                    <span class="chk-cart-recommendations__item-price">
+                      {%- render 'price', product: product -%}
+                    </span>
+                  </a>
+                </li>
+              {%- endunless -%}
+            {%- endfor -%}
+          {%- endcapture -%}
+          {%- if recommended_count > 0 -%}
+            <div class="chk-cart-recommendations">
+              <p class="chk-cart-recommendations__heading">You might also like</p>
+              <ul class="chk-cart-recommendations__list" role="list">
+                {{ recommendations_markup }}
+              </ul>
+            </div>
+          {%- endif -%}
         {%- endif -%}
-      {%- endif -%}
+      </cart-drawer-items>
       <div class="drawer__footer">
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
