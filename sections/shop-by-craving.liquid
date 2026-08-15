@@ -29,11 +29,17 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    min-height: 42rem;
+    min-height: 30rem;
     border-radius: var(--radius-editorial);
     overflow: hidden;
     padding: var(--space-4);
     isolation: isolate;
+  }
+
+  @media screen and (min-width: 750px) {
+    .chk-craving-card {
+      min-height: 42rem;
+    }
   }
 
   .chk-craving-card__bg {
