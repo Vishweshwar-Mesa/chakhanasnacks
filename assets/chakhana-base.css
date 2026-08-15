@@ -472,10 +472,12 @@
 
 .chk-cart-recommendations__item img {
   width: 100%;
+  max-width: 8rem;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 1rem;
-  margin-bottom: 0.4rem;
+  margin: 0 auto 0.4rem;
+  display: block;
 }
 
 .chk-cart-recommendations__item-title {
