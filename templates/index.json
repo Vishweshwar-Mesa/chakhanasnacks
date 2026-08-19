@@ -138,10 +138,10 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/50g-makhana-4-pack.jpg",
-            "tag": "03 — Combos",
-            "title": "Sampler Packs",
+            "tag": "03 — Bundles",
+            "title": "Bundles",
             "link": "shopify://collections/sampler-packs",
-            "link_label": "Shop combos"
+            "link_label": "Shop bundles"
           }
         }
       },
