@@ -156,7 +156,7 @@
             {%- endif -%}
           </div>
           <div class="chk-box-card__body">
-            <h3 class="chk-box-card__name">{{ product.title | remove: ' Makhana Chips' | remove: ' Ragi Chips' | escape }}</h3>
+            <h3 class="chk-box-card__name">{{ product.title | remove: ' Chips' | escape }}</h3>
             {%- for variant in product.variants -%}
               <div class="chk-box-card__row">
                 <span class="chk-box-card__row-label">
