@@ -19,7 +19,7 @@
     "story": {
       "type": "editorial-story",
       "blocks": {
-        "s1": { "type": "stat", "settings": { "value": "2024", "label": "Started with a craving" } },
+        "s1": { "type": "stat", "settings": { "value": "2026", "label": "Started with a craving" } },
         "s2": { "type": "stat", "settings": { "value": "6", "label": "Flavours, so far" } }
       },
       "block_order": ["s1", "s2"],
