@@ -64,7 +64,7 @@
     z-index: 1;
     margin-top: var(--space-6);
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat({{ section.blocks.size | at_least: 1 }}, 1fr);
     gap: var(--space-3);
   }
 

@@ -29,19 +29,12 @@
           "settings": {
             "image": "shopify://shop_images/cream-onion-makhana-100g.jpg"
           }
-        },
-        "pack_4": {
-          "type": "pack",
-          "settings": {
-            "image": "shopify://shop_images/cheese-herbs-makhana-100g.jpg"
-          }
         }
       },
       "block_order": [
         "pack_1",
         "pack_2",
-        "pack_3",
-        "pack_4"
+        "pack_3"
       ],
       "settings": {
         "color_scheme": "scheme-1",
@@ -263,29 +256,16 @@
             "link": "shopify://collections/makhana-chips",
             "link_label": "Shop Cream & Onion"
           }
-        },
-        "cheese_herbs": {
-          "type": "flavour",
-          "settings": {
-            "color_scheme": "scheme-6",
-            "name": "Cheese & Herbs",
-            "tagline": "Cheese aeele pao gaya tha!!!!!",
-            "description": "<p>Cheesy, herby, endlessly moreish — for when only cheese will do.</p>",
-            "image": "shopify://shop_images/cheese-herbs-makhana-100g.jpg",
-            "link": "shopify://collections/makhana-chips",
-            "link_label": "Shop Cheese & Herbs"
-          }
         }
       },
       "block_order": [
         "masala",
         "peri_peri",
-        "cream_onion",
-        "cheese_herbs"
+        "cream_onion"
       ],
       "settings": {
         "eyebrow": "The flavour universe",
-        "heading": "Four flavours. Zero boring.",
+        "heading": "Zero boring.",
         "padding_top": 44
       }
     },
@@ -390,7 +370,7 @@
         "c4": {
           "type": "flavour_chip",
           "settings": {
-            "flavour": "Cheese & Herbs",
+            "flavour": "Jain Masala",
             "color_scheme": "scheme-6"
           }
         }
