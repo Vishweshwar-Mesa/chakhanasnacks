@@ -43,6 +43,15 @@
     display: block;
   }
 
+  .chk-box-card--sold-out .chk-box-card__media img {
+    filter: grayscale(1);
+    opacity: 0.5;
+  }
+
+  .chk-box-card--sold-out .chk-box-card__name {
+    opacity: 0.6;
+  }
+
   .chk-box-card__body {
     padding: var(--space-3);
   }
@@ -149,7 +158,7 @@
 
     <div class="chk-box-builder__grid">
       {%- for product in section.settings.products -%}
-        <div class="chk-box-card">
+        <div class="chk-box-card{% unless product.available %} chk-box-card--sold-out{% endunless %}">
           <div class="chk-box-card__media">
             {%- if product.featured_image != blank -%}
               {{ product.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', widths: '200, 300, 400', alt: '' }}
