@@ -41,7 +41,7 @@
       <meta name="description" content="{{ page_description | escape }}">
     {%- elsif request.page_type == 'index' and settings.brand_headline != blank -%}
       {%- capture fallback_description -%}
-        {{ settings.brand_headline | strip_html }} Better-for-you makhana & ragi chips, seasoned properly, shipping pan-India.
+        {{ settings.brand_headline | strip_html }} Better-for-you makhana & ragi chips, seasoned properly.
       {%- endcapture -%}
       <meta name="description" content="{{ fallback_description | strip_newlines | escape }}">
     {%- endif -%}
