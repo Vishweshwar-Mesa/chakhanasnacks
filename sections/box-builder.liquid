@@ -161,13 +161,25 @@
               <div class="chk-box-card__row">
                 <span class="chk-box-card__row-label">
                   {{ variant.title }}
-                  <span class="chk-box-card__price">{{ variant.price | money }}</span>
+                  {%- if variant.available -%}
+                    <span class="chk-box-card__price">{{ variant.price | money }}</span>
+                  {%- else -%}
+                    <span class="chk-box-card__price">Sold out</span>
+                  {%- endif -%}
                 </span>
-                <div class="chk-box-stepper" data-variant-row data-variant-id="{{ variant.id }}" data-variant-price="{{ variant.price }}">
-                  <button type="button" data-decrement aria-label="Remove one {{ product.title | escape }} {{ variant.title }}">−</button>
-                  <span class="chk-box-stepper__qty" data-qty>0</span>
-                  <button type="button" data-increment aria-label="Add one {{ product.title | escape }} {{ variant.title }}">+</button>
-                </div>
+                {%- if variant.available -%}
+                  <div class="chk-box-stepper" data-variant-row data-variant-id="{{ variant.id }}" data-variant-price="{{ variant.price }}">
+                    <button type="button" data-decrement aria-label="Remove one {{ product.title | escape }} {{ variant.title }}">−</button>
+                    <span class="chk-box-stepper__qty" data-qty>0</span>
+                    <button type="button" data-increment aria-label="Add one {{ product.title | escape }} {{ variant.title }}">+</button>
+                  </div>
+                {%- else -%}
+                  <div class="chk-box-stepper chk-box-stepper--disabled" aria-hidden="true">
+                    <button type="button" disabled>−</button>
+                    <span class="chk-box-stepper__qty">0</span>
+                    <button type="button" disabled>+</button>
+                  </div>
+                {%- endif -%}
               </div>
             {%- endfor -%}
           </div>
