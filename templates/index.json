@@ -29,12 +29,19 @@
           "settings": {
             "image": "shopify://shop_images/cream-onion-makhana-100g.jpg"
           }
+        },
+        "pack_4": {
+          "type": "pack",
+          "settings": {
+            "image": "shopify://shop_images/jain-masala-makhana-50g.jpg"
+          }
         }
       },
       "block_order": [
         "pack_1",
         "pack_2",
-        "pack_3"
+        "pack_3",
+        "pack_4"
       ],
       "settings": {
         "color_scheme": "scheme-1",
@@ -256,16 +263,29 @@
             "link": "shopify://collections/makhana-chips",
             "link_label": "Shop Cream & Onion"
           }
+        },
+        "jain_masala": {
+          "type": "flavour",
+          "settings": {
+            "color_scheme": "scheme-6",
+            "name": "Jain Masala",
+            "tagline": "Bina pyaz-lehsun, poora chatpata!!!",
+            "description": "<p>All the masaledar, chatpata flavour of our OG Masala — made without onion or garlic, so it fits Jain dietary preferences too.</p>",
+            "image": "shopify://shop_images/jain-masala-makhana-50g.jpg",
+            "link": "shopify://collections/makhana-chips",
+            "link_label": "Shop Jain Masala"
+          }
         }
       },
       "block_order": [
         "masala",
         "peri_peri",
-        "cream_onion"
+        "cream_onion",
+        "jain_masala"
       ],
       "settings": {
         "eyebrow": "The flavour universe",
-        "heading": "Zero boring.",
+        "heading": "Four flavours. Zero boring.",
         "padding_top": 44
       }
     },
