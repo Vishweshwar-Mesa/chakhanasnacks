@@ -27,15 +27,24 @@
     {% comment %}theme-check-enable RemoteAsset{% endcomment %}
 
     <title>
-      {{ page_title }}
-      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- if request.page_type == 'index' and page_title == shop.name and settings.brand_headline != blank -%}
+        {{ shop.name }} &ndash; {{ settings.brand_headline }}
+      {%- else -%}
+        {{ page_title }}
+        {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+        {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+        {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- endif -%}
     </title>
 
-    {% if page_description %}
+    {%- if page_description -%}
       <meta name="description" content="{{ page_description | escape }}">
-    {% endif %}
+    {%- elsif request.page_type == 'index' and settings.brand_headline != blank -%}
+      {%- capture fallback_description -%}
+        {{ settings.brand_headline | strip_html }} Better-for-you makhana & ragi chips, seasoned properly, shipping pan-India.
+      {%- endcapture -%}
+      <meta name="description" content="{{ fallback_description | strip_newlines | escape }}">
+    {%- endif -%}
 
     {% render 'meta-tags' %}
     {% render 'structured-data-organization' %}
