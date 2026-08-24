@@ -539,3 +539,21 @@
     transform: translateZ(0);
   }
 }
+
+/* ==========================================================================
+   Sold-out product cards: grey out so they read as unavailable at a glance
+   ========================================================================== */
+
+.chk-card--sold-out .card__media img,
+.chk-card--sold-out .card__media svg {
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+
+.chk-card--sold-out .card__information {
+  opacity: 0.6;
+}
+
+.chk-card--sold-out .card__badge {
+  opacity: 1;
+}
