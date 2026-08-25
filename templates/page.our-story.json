@@ -31,7 +31,7 @@
         "badge_color_scheme": "scheme-6",
         "eyebrow": "Our story",
         "heading": "Makhana is everywhere. Chakhana isn't.",
-        "text": "<p>Plain makhana is easy to find. Tasty, trustworthy makhana chips aren't — and ragi snacks were stuck being the \"healthy but boring\" option. We wanted a better-for-you snack people would actually crave at 4pm, not just tolerate.</p><p>So we built Chakhana: better-for-you makhana and ragi chips, seasoned properly, in flavours worth reaching for again — Masala, Peri Peri, Cream &amp; Onion and Jain Masala on the makhana side, Masala and Peri Peri on ragi.</p>",
+        "text": "<p>Plain makhana is easy to find. Tasty, trustworthy makhana chips aren't. We wanted a better-for-you snack people would actually crave at 4pm, not just tolerate.</p><p>So we built Chakhana: better-for-you makhana chips, seasoned properly, in flavours worth reaching for again — Masala, Peri Peri, Cream &amp; Onion and Jain Masala.</p>",
         "link": "shopify://collections/all",
         "link_label": "Shop Chakhana",
         "padding_top": 48,
@@ -53,8 +53,8 @@
           "type": "point",
           "settings": {
             "icon": "icon-leaf.svg",
-            "title": "Makhana & ragi",
-            "text": "Real fox nut and finger millet — a better-for-you snack with real substance."
+            "title": "Real makhana",
+            "text": "Real fox nut — a better-for-you snack with real substance."
           }
         },
         "p3": {
@@ -82,7 +82,7 @@
         "color_scheme": "scheme-3",
         "eyebrow": "Okay.",
         "heading": "Ab chakh ke dekh.",
-        "text": "<p>Crunchy makhana and ragi chips, seasoned properly.</p>",
+        "text": "<p>Crunchy makhana chips, seasoned properly.</p>",
         "button_label": "Shop Chakhana",
         "button_link": "shopify://collections/all",
         "padding_top": 80,
