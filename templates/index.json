@@ -48,7 +48,7 @@
         "height": 70,
         "eyebrow": "The next better-for-you snack.",
         "heading": "Snacking just got a lot more Chakhana.",
-        "text": "<p>Makhana &amp; ragi chips made for cravings that refuse to be boring.</p>",
+        "text": "<p>Makhana chips made for cravings that refuse to be boring.</p>",
         "button_label": "Shop the crunch",
         "button_link": "shopify://collections/all",
         "button_label_2": "Meet the flavours",
@@ -62,12 +62,6 @@
           "type": "word",
           "settings": {
             "text": "MAKHANA"
-          }
-        },
-        "w2": {
-          "type": "word",
-          "settings": {
-            "text": "RAGI"
           }
         },
         "w3": {
@@ -97,7 +91,6 @@
       },
       "block_order": [
         "w1",
-        "w2",
         "w3",
         "w4",
         "w5",
@@ -108,7 +101,7 @@
         "font_size": 72,
         "padding_top": 20,
         "padding_bottom": 20,
-        "aria_label": "Brand marquee: Makhana, Ragi, Crunch, Masala, Peri Peri, Chakhana"
+        "aria_label": "Brand marquee: Makhana, Crunch, Masala, Peri Peri, Chakhana"
       }
     },
     "shop_by_craving": {
@@ -124,21 +117,11 @@
             "link_label": "Shop Makhana"
           }
         },
-        "ragi": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/masala-ragi-chips-100g.jpg",
-            "tag": "02 — Ragi",
-            "title": "Chips made from Ragi",
-            "link": "shopify://collections/ragi-chips",
-            "link_label": "Shop Ragi"
-          }
-        },
         "combos": {
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/50g-makhana-4-pack.jpg",
-            "tag": "03 — Bundles",
+            "tag": "02 — Bundles",
             "title": "Bundles",
             "link": "shopify://collections/sampler-packs",
             "link_label": "Shop bundles"
@@ -147,7 +130,6 @@
       },
       "block_order": [
         "makhana",
-        "ragi",
         "combos"
       ],
       "settings": {
@@ -189,8 +171,8 @@
           "type": "point",
           "settings": {
             "icon": "icon-leaf.svg",
-            "title": "Makhana & ragi",
-            "text": "Real fox nut and finger millet, seasoned generously — a better-for-you snack."
+            "title": "Real makhana",
+            "text": "Real fox nut, seasoned generously — a better-for-you snack."
           }
         },
         "p3": {
@@ -326,43 +308,6 @@
         "padding_bottom": 52
       }
     },
-    "ragi_story": {
-      "type": "editorial-story",
-      "blocks": {
-        "s1": {
-          "type": "stat",
-          "settings": {
-            "value": "2",
-            "label": "Flavours"
-          }
-        },
-        "s2": {
-          "type": "stat",
-          "settings": {
-            "value": "50g / 100g",
-            "label": "Pack sizes"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2"
-      ],
-      "settings": {
-        "color_scheme": "scheme-5",
-        "layout": "reverse",
-        "image": "shopify://shop_images/masala-ragi-chips-50g.jpg",
-        "badge_text": "Your millet snack, minus the boring",
-        "badge_color_scheme": "scheme-4",
-        "eyebrow": "Ragi, reintroduced",
-        "heading": "Replacing your boring ragi chips",
-        "text": "<p>Ragi (finger millet) chips had a reputation problem: healthy, sure, but forgettable. We kept the ragi, ditched the boring — seasoned generously, built for the 4pm crunch craving.</p>",
-        "link": "shopify://collections/ragi-chips",
-        "link_label": "Shop Ragi",
-        "padding_top": 52,
-        "padding_bottom": 52
-      }
-    },
     "combo_builder": {
       "type": "combo-builder",
       "blocks": {
@@ -430,7 +375,7 @@
           "type": "review",
           "settings": {
             "rating": 5,
-            "quote": "Finally a ragi chip that doesn't taste like cardboard.",
+            "quote": "Cream & Onion disappeared from my desk in one sitting. No regrets.",
             "name": "Demo reviewer",
             "demo_tag": "Demo review"
           }
@@ -464,7 +409,7 @@
         "color_scheme": "scheme-3",
         "eyebrow": "Okay.",
         "heading": "Ab chakh ke dekh.",
-        "text": "<p>Crunchy makhana and ragi chips, seasoned properly.</p>",
+        "text": "<p>Crunchy makhana chips, seasoned properly.</p>",
         "button_label": "Shop Chakhana",
         "button_link": "shopify://collections/all",
         "padding_top": 72,
@@ -481,7 +426,6 @@
     "combo_builder",
     "flavour_universe",
     "makhana_story",
-    "ragi_story",
     "testimonials",
     "final_cta"
   ]
