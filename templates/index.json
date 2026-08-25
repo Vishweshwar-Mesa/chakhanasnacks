@@ -15,19 +15,19 @@
         "pack_1": {
           "type": "pack",
           "settings": {
-            "image": "shopify://shop_images/masala-makhana-100g.jpg"
+            "image": "shopify://shop_images/masala-makhana-50g.jpg"
           }
         },
         "pack_2": {
           "type": "pack",
           "settings": {
-            "image": "shopify://shop_images/peri-peri-makhana-100g.jpg"
+            "image": "shopify://shop_images/peri-peri-makhana-50g.jpg"
           }
         },
         "pack_3": {
           "type": "pack",
           "settings": {
-            "image": "shopify://shop_images/cream-onion-makhana-100g.jpg"
+            "image": "shopify://shop_images/cream-onion-makhana-50g.jpg"
           }
         },
         "pack_4": {
@@ -217,7 +217,7 @@
             "name": "Masala",
             "tagline": "Chatpate toh sab hai!!!",
             "description": "<p>Our OG flavour — a masaledar, chatpata blend of classic Indian spices on every crispy makhana bite.</p>",
-            "image": "shopify://shop_images/masala-makhana-100g.jpg",
+            "image": "shopify://shop_images/masala-makhana-50g.jpg",
             "link": "shopify://collections/makhana-chips",
             "link_label": "Shop Masala"
           }
@@ -229,7 +229,7 @@
             "name": "Peri Peri",
             "tagline": "Bhaiya thoda aur teeekha!!!!",
             "description": "<p>For the ones who always ask for extra spicy — a fiery peri peri kick on every crunchy bite.</p>",
-            "image": "shopify://shop_images/peri-peri-makhana-100g.jpg",
+            "image": "shopify://shop_images/peri-peri-makhana-50g.jpg",
             "link": "shopify://collections/makhana-chips",
             "link_label": "Shop Peri Peri"
           }
@@ -241,7 +241,7 @@
             "name": "Cream & Onion",
             "tagline": "Kuchu Puchu Keliye!!!!",
             "description": "<p>Creamy, tangy, and impossible to put down — the classic cream &amp; onion crunch, makhana-style.</p>",
-            "image": "shopify://shop_images/cream-onion-makhana-100g.jpg",
+            "image": "shopify://shop_images/cream-onion-makhana-50g.jpg",
             "link": "shopify://collections/makhana-chips",
             "link_label": "Shop Cream & Onion"
           }
