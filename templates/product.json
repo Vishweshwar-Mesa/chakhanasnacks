@@ -62,7 +62,7 @@
           "settings": {
             "heading": "Shipping & returns",
             "icon": "truck",
-            "content": "<p>We ship pan-India. As this is a food product, we're unable to accept returns once a pack has been opened — message us if anything arrives damaged and we'll sort it out.</p>"
+            "content": "<p>We ship pan-India. Delivery takes 7 days from the day you book your order. Free shipping on orders above &#8377;500 &mdash; below that, a flat &#8377;100 shipping charge applies.</p><p>As this is a food product, we're unable to accept returns once a pack has been opened — message us if anything arrives damaged and we'll sort it out.</p>"
           }
         },
         "nutrition_facts": {

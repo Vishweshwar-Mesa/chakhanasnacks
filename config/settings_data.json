@@ -207,6 +207,8 @@
       "show_cart_note": false,
       "cart_drawer_collection": "makhana-chips",
       "cart_color_scheme": "scheme-1",
+      "free_shipping_bar_enable": true,
+      "free_shipping_threshold": 500,
       "sections": {
         "main-password-header": {
           "type": "main-password-header",
