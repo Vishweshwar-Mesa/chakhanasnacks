@@ -14,7 +14,7 @@
           "type": "column",
           "settings": {
             "title": "Shipping",
-            "text": "<p>We ship pan-India. Orders are typically packed and handed to our courier partner within 1-2 business days; delivery timelines depend on your location and are shown at checkout.</p>",
+            "text": "<p>We ship pan-India. Delivery takes 7 days from the day you book your order. Free shipping on orders above &#8377;500 &mdash; below that, a flat &#8377;100 shipping charge applies.</p>",
             "link_label": "",
             "link": ""
           }

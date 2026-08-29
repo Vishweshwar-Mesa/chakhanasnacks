@@ -55,6 +55,18 @@
         "button_link_2": "#flavour-universe"
       }
     },
+    "shipping_banner": {
+      "type": "shipping-banner",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "free_shipping_heading": "Free shipping over ₹500",
+        "free_shipping_text": "Below that, flat ₹100 shipping across India.",
+        "delivery_heading": "Delivered in 7 days",
+        "delivery_text": "From the day you book, pan-India.",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
     "marquee": {
       "type": "marquee",
       "blocks": {
@@ -419,6 +431,7 @@
   },
   "order": [
     "hero",
+    "shipping_banner",
     "marquee",
     "shop_by_craving",
     "bestsellers",

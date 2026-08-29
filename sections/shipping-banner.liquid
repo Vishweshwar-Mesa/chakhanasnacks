@@ -1,0 +1,132 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .chk-ship-banner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  @media screen and (min-width: 750px) {
+    .chk-ship-banner {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+    }
+  }
+
+  .chk-ship-banner__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border-radius: var(--radius-editorial);
+    background: rgba(var(--color-background), 0.12);
+  }
+
+  .chk-ship-banner__icon {
+    flex-shrink: 0;
+    width: 5.2rem;
+    height: 5.2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--color-background), 0.9);
+    color: rgb(var(--color-button));
+  }
+
+  .chk-ship-banner__icon svg {
+    width: 2.6rem;
+    height: 2.6rem;
+    fill: currentColor;
+  }
+
+  .chk-ship-banner__title {
+    font-family: var(--font-heading-family);
+    font-weight: 800;
+    font-size: 1.9rem;
+    margin: 0 0 0.2rem;
+  }
+
+  .chk-ship-banner__text {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 1.4rem;
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="chk-ship-banner">
+      <div class="chk-ship-banner__item chk-reveal">
+        <span class="chk-ship-banner__icon" aria-hidden="true">{{ 'icon-truck.svg' | inline_asset_content }}</span>
+        <div>
+          <p class="chk-ship-banner__title">{{ section.settings.free_shipping_heading | escape }}</p>
+          <p class="chk-ship-banner__text">{{ section.settings.free_shipping_text }}</p>
+        </div>
+      </div>
+      <div class="chk-ship-banner__item chk-reveal" style="--chk-stagger: 1;">
+        <span class="chk-ship-banner__icon" aria-hidden="true">{{ 'icon-box.svg' | inline_asset_content }}</span>
+        <div>
+          <p class="chk-ship-banner__title">{{ section.settings.delivery_heading | escape }}</p>
+          <p class="chk-ship-banner__text">{{ section.settings.delivery_text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Shipping banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-3"
+    },
+    { "type": "text", "id": "free_shipping_heading", "label": "Free shipping heading", "default": "Free shipping over ₹500" },
+    { "type": "text", "id": "free_shipping_text", "label": "Free shipping text", "default": "Below that, flat ₹100 shipping across India." },
+    { "type": "text", "id": "delivery_heading", "label": "Delivery heading", "default": "Delivered in 7 days" },
+    { "type": "text", "id": "delivery_text", "label": "Delivery text", "default": "From the day you book, pan-India." },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 32
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shipping banner"
+    }
+  ]
+}
+{% endschema %}
