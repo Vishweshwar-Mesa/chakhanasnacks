@@ -116,20 +116,31 @@
     font-variant-numeric: tabular-nums;
   }
 
+  .chk-box-builder__summary-spacer {
+    height: 9rem;
+  }
+
   .chk-box-builder__summary {
-    position: sticky;
-    bottom: var(--space-3);
-    margin-top: var(--space-5);
-    padding: var(--space-3) var(--space-4);
-    border-radius: var(--radius-editorial);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
     background: rgb(var(--color-foreground));
     color: rgb(var(--color-background));
+    box-shadow: var(--shadow-pop);
+  }
+
+  .chk-box-builder__summary-inner {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: var(--space-3) var(--space-4);
+    padding-bottom: max(var(--space-3), env(safe-area-inset-bottom));
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-3);
-    box-shadow: var(--shadow-pop);
   }
 
   .chk-box-builder__tier-message {
@@ -196,7 +207,11 @@
       {%- endfor -%}
     </div>
 
-    <div class="chk-box-builder__summary">
+    <div class="chk-box-builder__summary-spacer"></div>
+  </div>
+
+  <div class="chk-box-builder__summary">
+    <div class="chk-box-builder__summary-inner">
       <span class="chk-box-builder__tier-message" data-tier-message>Pick 2 pouches for 5% off, or 4 for 10% off</span>
       <button type="button" class="button chk-box-builder__add" data-add-to-cart disabled>
         Add box to cart — <span data-total-price>{{ 0 | money }}</span>
