@@ -371,50 +371,6 @@
         "padding_bottom": 48
       }
     },
-    "testimonials": {
-      "type": "testimonials",
-      "blocks": {
-        "r1": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "Genuinely can't stop at one pouch. The masala flavour is unreal.",
-            "name": "Demo reviewer",
-            "demo_tag": "Demo review"
-          }
-        },
-        "r2": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "Cream & Onion disappeared from my desk in one sitting. No regrets.",
-            "name": "Demo reviewer",
-            "demo_tag": "Demo review"
-          }
-        },
-        "r3": {
-          "type": "review",
-          "settings": {
-            "rating": 4,
-            "quote": "Peri Peri lives up to \"bhaiya thoda aur teekha.\" Respect.",
-            "name": "Demo reviewer",
-            "demo_tag": "Demo review"
-          }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3"
-      ],
-      "settings": {
-        "color_scheme": "scheme-2",
-        "eyebrow": "Word on the street",
-        "heading": "People who've chakha-ed",
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
     "final_cta": {
       "type": "final-cta",
       "settings": {
@@ -439,7 +395,6 @@
     "combo_builder",
     "flavour_universe",
     "makhana_story",
-    "testimonials",
     "final_cta"
   ]
 }
