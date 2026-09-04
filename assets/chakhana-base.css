@@ -557,3 +557,38 @@
 .chk-card--sold-out .card__badge {
   opacity: 1;
 }
+
+/* ==========================================================================
+   PDP gallery: put the thumbnail strip on the side instead of below the
+   main image. gallery_layout is "thumbnail_slider" (Dawn only offers
+   side-vs-below as a visual side effect of other settings, not a direct
+   toggle), so this positions it explicitly rather than relying on that.
+   ========================================================================== */
+
+@media screen and (min-width: 750px) {
+  .product--thumbnail_slider .product__media-wrapper media-gallery {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-3);
+  }
+
+  .product--thumbnail_slider .product__media-wrapper media-gallery > slider-component.thumbnail-slider {
+    order: -1;
+    flex: 0 0 8rem;
+  }
+
+  .product--thumbnail_slider .product__media-wrapper media-gallery > slider-component:not(.thumbnail-slider) {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .product--thumbnail_slider .thumbnail-list {
+    display: flex !important;
+    flex-direction: column;
+    grid-template-columns: none;
+  }
+
+  .product--thumbnail_slider .thumbnail-list__item {
+    width: 100%;
+  }
+}
