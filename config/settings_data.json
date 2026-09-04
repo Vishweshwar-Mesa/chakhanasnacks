@@ -12,6 +12,7 @@
   "presets": {
     "Dawn": {
       "logo_width": 90,
+      "favicon": "shopify://shop_images/chakhana-favicon.png",
       "color_schemes": {
         "scheme-1": {
           "settings": {
