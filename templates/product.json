@@ -54,7 +54,7 @@
           "settings": {
             "heading": "Ingredients & storage",
             "icon": "leaf",
-            "content": "<p>Made with fried makhana (fox nuts), a seasoning blend, and edible oil. Full ingredient list and nutritional information are printed on pack.</p><p>Store in a cool, dry place away from direct sunlight. Reseal the pouch after opening to keep the crunch.</p>"
+            "content": "<p><strong>Ingredients:</strong> Makhana flour, urad dal flour, tapioca starch, edible vegetable oil (rice bran), iodised salt, red chilli &amp; selected spices.</p><p><strong>Allergen information:</strong> May contain traces of gluten. Packed in a facility that also handles wheat, soyabean, mustard, peanuts &amp; tree nuts.</p><p>Store in a cool, dry place away from direct sunlight, in an airtight container. Reseal the pouch after opening to keep the crunch.</p>"
           }
         },
         "shipping_tab": {
@@ -66,9 +66,11 @@
           }
         },
         "nutrition_facts": {
-          "type": "nutrition_facts",
+          "type": "collapsible_tab",
           "settings": {
-            "heading": "Nutrition & ingredients"
+            "heading": "Nutrition facts",
+            "icon": "clipboard",
+            "content": "<p><em>Per 100g, approx.</em></p><ul><li>Energy: 526 kcal</li><li>Protein: 7.8 g</li><li>Total Fat: 29.9 g</li><li>Total Carbohydrate: 60.8 g (of which Sugar: 1.0 g)</li><li>Dietary Fiber: 5.2 g</li><li>Trans Fat / Cholesterol: 0 g / 0 mg</li><li>Sodium: 425 mg</li></ul>"
           }
         },
         "faq_tab": {
