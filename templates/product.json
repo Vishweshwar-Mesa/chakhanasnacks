@@ -125,6 +125,16 @@
         "padding_bottom": 0
       }
     },
+    "product-reviews": {
+      "type": "product-reviews",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Customer reviews",
+        "form_toggle_label": "Write a review",
+        "padding_top": 36,
+        "padding_bottom": 48
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -147,6 +157,7 @@
   "order": [
     "main",
     "disclosures",
+    "product-reviews",
     "related-products"
   ]
 }
