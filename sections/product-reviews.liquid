@@ -1,0 +1,252 @@
+{%- comment -%}
+  Displays curated reviews from product.metafields.custom.reviews (a JSON
+  array of {name, rating, quote, date} objects, added manually via the
+  Admin API as real reviews come in) and a submission form that emails
+  the store owner via Shopify's native contact-form mechanism - no
+  reviews app, no automatic publishing. See MEMORY/README for the
+  curation workflow.
+{%- endcomment -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .chk-reviews__summary {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-4);
+  }
+
+  .chk-reviews__stars {
+    color: #f2a93e;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .chk-reviews__stars--empty {
+    opacity: 0.3;
+  }
+
+  .chk-reviews__count {
+    opacity: 0.75;
+    font-size: 1.4rem;
+  }
+
+  .chk-reviews__list {
+    display: grid;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .chk-review-card {
+    padding: var(--space-3);
+    border-radius: var(--radius-editorial);
+    background: rgba(var(--color-foreground), 0.03);
+  }
+
+  .chk-review-card__stars {
+    color: #f2a93e;
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .chk-review-card__quote {
+    margin: 0 0 var(--space-2);
+  }
+
+  .chk-review-card__meta {
+    font-size: 1.2rem;
+    opacity: 0.7;
+  }
+
+  .chk-reviews__empty {
+    padding: var(--space-3);
+    border-radius: var(--radius-editorial);
+    background: rgba(var(--color-foreground), 0.03);
+    margin-bottom: var(--space-4);
+  }
+
+  .chk-review-form {
+    max-width: 48rem;
+  }
+
+  .chk-review-form .field {
+    margin-bottom: var(--space-3);
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign reviews = product.metafields.custom.reviews.value
+  assign review_count = 0
+  if reviews != blank
+    assign review_count = reviews.size
+  endif
+
+  assign rating_total = 0
+  for review in reviews
+    assign rating_total = rating_total | plus: review.rating
+  endfor
+
+  if review_count > 0
+    assign average_rating = rating_total | divided_by: review_count | round
+  else
+    assign average_rating = 0
+  endif
+
+  assign full_stars = average_rating
+  assign empty_stars = 5 | minus: full_stars
+-%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="chk-display chk-display--lg">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if review_count > 0 -%}
+      <div class="chk-reviews__summary">
+        <span class="chk-reviews__stars" aria-hidden="true">
+          {%- for i in (1..full_stars) -%}★{%- endfor -%}{%- for i in (1..empty_stars) -%}<span class="chk-reviews__stars--empty">★</span>{%- endfor -%}
+        </span>
+        <span class="chk-reviews__count">
+          {{ average_rating }}/5 · based on {{ review_count }} review{% if review_count != 1 %}s{% endif %}
+        </span>
+      </div>
+
+      <div class="chk-reviews__list">
+        {%- for review in reviews -%}
+          <div class="chk-review-card">
+            {%- liquid
+              assign card_full = review.rating
+              assign card_empty = 5 | minus: card_full
+            -%}
+            <div class="chk-review-card__stars" aria-hidden="true">
+              {%- for i in (1..card_full) -%}★{%- endfor -%}{%- for i in (1..card_empty) -%}<span class="chk-reviews__stars--empty">★</span>{%- endfor -%}
+            </div>
+            <p class="chk-review-card__quote">&ldquo;{{ review.quote }}&rdquo;</p>
+            <p class="chk-review-card__meta">{{ review.name }}{% if review.date %} · {{ review.date }}{% endif %}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="chk-reviews__empty">
+        <p>No reviews yet — be the first to tell us what you think.</p>
+      </div>
+    {%- endif -%}
+
+    <details class="chk-review-form-toggle">
+      <summary class="button button--secondary">{{ section.settings.form_toggle_label | default: 'Write a review' }}</summary>
+
+      {%- form 'contact', id: 'ReviewForm', class: 'chk-review-form' -%}
+        {%- if form.posted_successfully? -%}
+          <p class="form-status form__message" tabindex="-1" autofocus>
+            Thanks! We read every review and add approved ones here.
+          </p>
+        {%- elsif form.errors -%}
+          <p class="form-status" role="alert" tabindex="-1" autofocus>
+            Please check your email address and try again.
+          </p>
+        {%- endif -%}
+
+        <input type="hidden" name="contact[Product]" value="{{ product.title }} ({{ product.handle }})">
+
+        <div class="field">
+          <label class="field__label" for="ReviewForm-name-{{ section.id }}">Your name</label>
+          <input
+            class="field__input"
+            type="text"
+            id="ReviewForm-name-{{ section.id }}"
+            name="contact[Name]"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="ReviewForm-email-{{ section.id }}">Your email</label>
+          <input
+            class="field__input"
+            type="email"
+            id="ReviewForm-email-{{ section.id }}"
+            name="contact[email]"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="ReviewForm-rating-{{ section.id }}">Rating</label>
+          <select class="field__input" id="ReviewForm-rating-{{ section.id }}" name="contact[Rating]" required>
+            <option value="">Pick a rating</option>
+            <option value="5">★★★★★ — Excellent</option>
+            <option value="4">★★★★☆ — Good</option>
+            <option value="3">★★★☆☆ — Okay</option>
+            <option value="2">★★☆☆☆ — Not great</option>
+            <option value="1">★☆☆☆☆ — Poor</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="ReviewForm-body-{{ section.id }}">Your review</label>
+          <textarea
+            class="text-area field__input"
+            id="ReviewForm-body-{{ section.id }}"
+            name="contact[body]"
+            rows="5"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="button">Submit review</button>
+      {%- endform -%}
+    </details>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product reviews",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-1" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Customer reviews" },
+    { "type": "text", "id": "form_toggle_label", "label": "Form toggle label", "default": "Write a review" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 48
+    }
+  ],
+  "presets": [
+    { "name": "Product reviews" }
+  ]
+}
+{% endschema %}
