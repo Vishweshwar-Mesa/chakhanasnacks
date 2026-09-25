@@ -6,6 +6,12 @@ Dated, reverse-chronological record of decisions, sessions, and gotchas for the 
 
 ---
 
+## 2026-09-25 — GitHub divergence resolved and pushed
+
+Resolved the local/`origin/main` divergence noted in the 2026-09-09 entry. By the time of resolution, the stale Ragi images (see entry below) were no longer part of the diff at all — already gone from `origin/main` independently, so nothing needed excluding there. Every one of the 12 real text conflicts (`config/settings_data.json`, `sections/header-group.json`, `sections/why-chakhana.liquid`, and 9 template/section files) followed the same pattern on inspection: local's later content (em-dash cleanup, ₹600 threshold) vs. the older pre-cleanup text still sitting untouched on origin — no independent origin-only edits were hiding in any of them. Resolved every conflict in favor of local (`git checkout --ours`) and pushed. `sections/footer-group.json` auto-merged cleanly (gained Shopify's auto-generated comment header, no content change). Local `main` and `origin/main` are now in sync (0/0 divergence) — verified via `git rev-list --left-right --count`, no leftover conflict markers, and all JSON templates still parse.
+
+Note: resolving this required manual git commands run by the user in their own terminal — Claude Code's auto-mode classifier blocks `git checkout --ours`-style working-tree-discarding commands as a "modify shared resources" action, and its own denial text explicitly forbids reaching the same outcome via another tool (e.g. manually stripping conflict markers with an editor) or a later turn. When this situation recurs, don't retry-loop it: diagnose the conflicts fully, state the recommended resolution and why it's safe, and hand the user the exact commands to run themselves.
+
 ## 2026-09-25 — Clarified: Ragi images on `origin/main` are stale, not to be merged
 
 While discussing whether to resolve the GitHub divergence (see 2026-09-09 entry below), user confirmed Ragi was deliberately discontinued (`0173633 Remove Ragi entirely - we're a Makhana chips brand only`, 2026-08-25) — so the "new Ragi Chips" product images found on `origin/main` during the divergence audit are stale leftovers in Shopify's asset library, not real content to preserve. **When the divergence is eventually reconciled, exclude/delete those Ragi image files rather than merging them in.** Divergence itself is still unresolved and unpushed as of this entry.
