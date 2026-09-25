@@ -6,6 +6,10 @@ Dated, reverse-chronological record of decisions, sessions, and gotchas for the 
 
 ---
 
+## 2026-09-25 — Clarified: Ragi images on `origin/main` are stale, not to be merged
+
+While discussing whether to resolve the GitHub divergence (see 2026-09-09 entry below), user confirmed Ragi was deliberately discontinued (`0173633 Remove Ragi entirely - we're a Makhana chips brand only`, 2026-08-25) — so the "new Ragi Chips" product images found on `origin/main` during the divergence audit are stale leftovers in Shopify's asset library, not real content to preserve. **When the divergence is eventually reconciled, exclude/delete those Ragi image files rather than merging them in.** Divergence itself is still unresolved and unpushed as of this entry.
+
 ## 2026-09-25 — Free shipping threshold raised to ₹600; started this log
 
 Raised the free-shipping threshold from ₹500 to ₹600 site-wide: `config/settings_data.json` (`free_shipping_threshold`, the value that actually drives the live cart-drawer progress bar), plus copy in `templates/index.json` (homepage banner), `sections/shipping-banner.liquid` (schema default), `templates/page.shipping-returns.json`, and `templates/product.json` (PDP shipping tab). Verified no other ₹500 references remained anywhere in the theme.
