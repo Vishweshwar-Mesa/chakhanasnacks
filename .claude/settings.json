@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"/Users/vishu/Desktop/Chakhana Website\" && DIRTY=$(git status --porcelain -- . \":!docs/PROJECT_LOG.md\" \":!CLAUDE.md\" 2>/dev/null) && if [ -n \"$DIRTY\" ]; then printf '%s' '{\"systemMessage\": \"Repo has uncommitted changes. Before ending the session: check whether docs/PROJECT_LOG.md needs a new dated entry, and ask the user if they want CLAUDE.md/PROJECT_LOG.md updates committed so context carries over across Claude accounts.\"}'; fi",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
