@@ -1,0 +1,26 @@
+# Chakhana — working notes for Claude
+
+This file is auto-loaded into context at the start of every session in this repo, regardless of which Claude account is used. It exists so context survives an account switch, a compacted conversation, or a totally new session. Read it first. Keep it short — put depth in the files it links to, not here.
+
+## What this is
+
+A custom Shopify Online Store 2.0 theme (Dawn 15.5.0 base) for Chakhana, a makhana (fox nut) chips D2C brand. Full architecture, product model, and build rationale: [docs/IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md). Design tokens/motion: [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md). Setup/deploy steps: [SETUP.md](SETUP.md), [SHOPIFY_SETUP.md](SHOPIFY_SETUP.md), [RAZORPAY_SETUP.md](RAZORPAY_SETUP.md).
+
+**Detailed, dated history of decisions and sessions lives in [docs/PROJECT_LOG.md](docs/PROJECT_LOG.md) — read that for "what happened recently and why."**
+
+## Store facts that are easy to get wrong
+
+- **Two different store identifiers exist.** `chakhanasnacks.myshopify.com` is the primary/connected domain (used in `shopify.theme.toml` for `theme push`/`theme dev`). `k33nfs-ew.myshopify.com` is the actual permanent store handle underneath — **Admin GraphQL calls via `shopify store execute` / `shopify store auth` must use `k33nfs-ew.myshopify.com`**, not chakhanasnacks, or auth fails with an OAuth callback mismatch.
+- The Shopify CLI (`shopify store auth --store k33nfs-ew.myshopify.com --scopes <...>`) caches credentials locally per scope set. Different tasks need different scopes (`read_products,write_products` for catalog work; `read_locations,write_locations` for shipping/pickup settings). If a query 403s with `ACCESS_DENIED`, it's almost always a missing scope, not a broken auth — re-run `store auth` with the added scope.
+- **GitHub remote (`origin`) is Shopify's native GitHub theme sync**, not a plain backup repo — it auto-commits "Update from Shopify" whenever the live theme is edited in admin. Local `main` and `origin/main` have diverged (both sides have real, non-overlapping content — see PROJECT_LOG for specifics) and this is **still unresolved as of the last log entry**. Do not force-push or blindly merge; check PROJECT_LOG.md and confirm with the user before touching this.
+- No Shopify Admin API token/secret lives in this repo. CLI auth is interactive (opens a browser); it cannot be run unattended.
+
+## Working agreements (from user feedback this session)
+
+- Storefront copy should read as human-written, not AI-generated: avoid em dashes in visible copy (use periods, commas, or parentheses instead); this was a deliberate cleanup pass, keep new copy consistent with it.
+- Auto mode's safety classifier blocks Claude from running `shopify store auth` (and reading its credential cache) unattended most of the time — it's inconsistent, not a fixed 100% block, but don't loop retrying it. The reliable path is asking the user to run CLI auth themselves in their own terminal and relay results, or pasting query output back for Claude to act on.
+- Only commit when explicitly asked; never push to `origin` without explicit confirmation given the unresolved divergence above.
+
+## Keeping this current
+
+After any session with a non-trivial decision, a discovered gotcha, or a completed multi-step task: append a dated entry to **[docs/PROJECT_LOG.md](docs/PROJECT_LOG.md)** (newest entry on top) before ending the session. If a fact belongs here instead (a durable rule, not a dated event), update this file directly. Commit both when the user asks for a commit — don't let them drift out of sync with the actual repo state.
