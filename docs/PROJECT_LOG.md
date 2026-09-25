@@ -6,6 +6,14 @@ Dated, reverse-chronological record of decisions, sessions, and gotchas for the 
 
 ---
 
+## 2026-09-25 — Added a Stop hook enforcing the log-update convention
+
+The cross-account context setup (`CLAUDE.md` + this log) relied purely on a Claude session remembering a written instruction to keep it updated — no enforcement. Added an actual `Stop` hook in `.claude/settings.json` (committed to git — see below) that fires after every assistant turn but only emits a `systemMessage` reminder when `git status --porcelain` shows real uncommitted changes outside `CLAUDE.md`/`docs/PROJECT_LOG.md` themselves; silent on read-only turns and once the tree is clean. Verified all three cases (clean tree silent, dirty-with-real-changes fires, dirty-only-in-the-log-files-themselves silent) by piping synthetic hook input directly at the extracted command.
+
+Also discovered `.claude/` was fully gitignored in this repo (`.claude/` as a blanket rule), which would have made a hook placed there invisible to git and therefore useless for the actual goal (persisting across Claude accounts). Changed `.gitignore` to `.claude/*` + `!.claude/settings.json` so the shared hook/permissions file is tracked while `.claude/settings.local.json` and other local tool config stay ignored.
+
+Note for future sessions: since the hook path is hardcoded to this machine's absolute project path, it degrades silently (does nothing, no error) if the repo is ever checked out somewhere else — that's intentional, not a bug to fix reflexively.
+
 ## 2026-09-25 — GitHub divergence resolved and pushed
 
 Resolved the local/`origin/main` divergence noted in the 2026-09-09 entry. By the time of resolution, the stale Ragi images (see entry below) were no longer part of the diff at all — already gone from `origin/main` independently, so nothing needed excluding there. Every one of the 12 real text conflicts (`config/settings_data.json`, `sections/header-group.json`, `sections/why-chakhana.liquid`, and 9 template/section files) followed the same pattern on inspection: local's later content (em-dash cleanup, ₹600 threshold) vs. the older pre-cleanup text still sitting untouched on origin — no independent origin-only edits were hiding in any of them. Resolved every conflict in favor of local (`git checkout --ours`) and pushed. `sections/footer-group.json` auto-merged cleanly (gained Shopify's auto-generated comment header, no content change). Local `main` and `origin/main` are now in sync (0/0 divergence) — verified via `git rev-list --left-right --count`, no leftover conflict markers, and all JSON templates still parse.

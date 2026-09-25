@@ -25,3 +25,5 @@ A custom Shopify Online Store 2.0 theme (Dawn 15.5.0 base) for Chakhana, a makha
 ## Keeping this current
 
 After any session with a non-trivial decision, a discovered gotcha, or a completed multi-step task: append a dated entry to **[docs/PROJECT_LOG.md](docs/PROJECT_LOG.md)** (newest entry on top) before ending the session. If a fact belongs here instead (a durable rule, not a dated event), update this file directly. Commit both when the user asks for a commit — don't let them drift out of sync with the actual repo state.
+
+A `Stop` hook in `.claude/settings.json` (tracked in git — see the `.gitignore` exception for it) reinforces this: it fires after each turn and shows a reminder whenever the working tree has real uncommitted changes outside `CLAUDE.md`/`PROJECT_LOG.md` themselves. Don't rely on it alone — it only nudges, it doesn't check whether the log entry is actually good or commit anything itself.
