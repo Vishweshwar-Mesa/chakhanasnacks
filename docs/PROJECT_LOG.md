@@ -2,7 +2,7 @@
 
 Dated, reverse-chronological record of decisions, sessions, and gotchas for the Chakhana theme project. This is the "what happened and why" complement to [docs/IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) (architecture, static) and [../CLAUDE.md](../CLAUDE.md) (durable facts/rules, short).
 
-**Instructions for Claude:** add a new dated entry at the top after any session with a non-trivial decision, a discovered gotcha, or a completed multi-step task. Keep entries factual and short — what changed, why, and anything a future session would otherwise have to rediscover the hard way. Don't duplicate what `git log` already tells you (commit-by-commit file changes); do capture things git history can't: reasoning, dead ends, external state (Shopify admin settings, auth scopes, domain quirks).
+**Instructions for Claude — mandatory, not optional:** whichever Claude account is used to build or edit this codebase must add a new dated entry here on every code update, no matter how small, before ending the session. Keep entries factual and short — what changed, why, and anything a future session (possibly on a different account) would otherwise have to rediscover the hard way. Don't duplicate what `git log` already tells you (commit-by-commit file changes); do capture things git history can't: reasoning, dead ends, external state (Shopify admin settings, auth scopes, domain quirks). This log is the only thing standing between "context survives an account switch" and "it doesn't" — treat updating it as part of finishing the task, not an afterthought.
 
 ---
 
