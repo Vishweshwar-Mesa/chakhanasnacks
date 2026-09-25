@@ -31,7 +31,7 @@
         "badge_color_scheme": "scheme-6",
         "eyebrow": "Our story",
         "heading": "Makhana is everywhere. Chakhana isn't.",
-        "text": "<p>Plain makhana is easy to find. Tasty, trustworthy makhana chips aren't. We wanted a better-for-you snack people would actually crave at 4pm, not just tolerate.</p><p>So we built Chakhana: better-for-you makhana chips, seasoned properly, in flavours worth reaching for again — Masala, Peri Peri, Cream &amp; Onion and Jain Masala.</p>",
+        "text": "<p>Plain makhana is easy to find. Tasty, trustworthy makhana chips aren't. We wanted a better-for-you snack people would actually crave at 4pm, not just tolerate.</p><p>So we built Chakhana: better-for-you makhana chips, seasoned properly, in flavours worth reaching for again. Masala, Peri Peri, Cream &amp; Onion and Jain Masala.</p>",
         "link": "shopify://collections/all",
         "link_label": "Shop Chakhana",
         "padding_top": 48,
@@ -54,7 +54,7 @@
           "settings": {
             "icon": "icon-leaf.svg",
             "title": "Real makhana",
-            "text": "Real fox nut — a better-for-you snack with real substance."
+            "text": "Real fox nut. A better-for-you snack with real substance."
           }
         },
         "p3": {

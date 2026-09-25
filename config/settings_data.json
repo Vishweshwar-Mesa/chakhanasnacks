@@ -179,7 +179,7 @@
       "sale_badge_color_scheme": "scheme-4",
       "sold_out_badge_color_scheme": "scheme-3",
       "brand_headline": "Humara snacks chakha na?",
-      "brand_description": "<p>Crunchy, better-for-you Makhana chips — made for young peeps and working professionals who refuse to choose between tasty and healthy.</p>",
+      "brand_description": "<p>Crunchy, better-for-you Makhana chips, made for young peeps and working professionals who refuse to choose between tasty and healthy.</p>",
       "brand_image_width": 100,
       "social_twitter_link": "",
       "social_facebook_link": "",
@@ -200,7 +200,7 @@
       "cart_drawer_collection": "makhana-chips",
       "cart_color_scheme": "scheme-1",
       "free_shipping_bar_enable": true,
-      "free_shipping_threshold": 500,
+      "free_shipping_threshold": 600,
       "sections": {
         "main-password-header": {
           "type": "main-password-header",

@@ -30,7 +30,7 @@
           "type": "faq",
           "settings": {
             "question": "How spicy is the Peri Peri flavour?",
-            "answer": "<p>Noticeably spicier than Masala — built for people who ask for extra chilli. Jain Masala is about as spicy as our regular Masala; Cream &amp; Onion is mild.</p>"
+            "answer": "<p>Noticeably spicier than Masala, built for people who ask for extra chilli. Jain Masala is about as spicy as our regular Masala; Cream &amp; Onion is mild.</p>"
           }
         },
         "q3": {
@@ -44,7 +44,7 @@
           "type": "faq",
           "settings": {
             "question": "Do you ship pan-India?",
-            "answer": "<p>Yes — see our <a href=\"/pages/shipping-returns\">Shipping &amp; Returns</a> page for delivery timelines and our policy on opened packs.</p>"
+            "answer": "<p>Yes. See our <a href=\"/pages/shipping-returns\">Shipping &amp; Returns</a> page for delivery timelines and our policy on opened packs.</p>"
           }
         },
         "q5": {
@@ -57,8 +57,8 @@
         "q6": {
           "type": "faq",
           "settings": {
-            "question": "I have another question — how do I reach you?",
-            "answer": "<p>Head to our <a href=\"/pages/contact\">Contact</a> page and send us a message — we read every one.</p>"
+            "question": "I have another question, how do I reach you?",
+            "answer": "<p>Head to our <a href=\"/pages/contact\">Contact</a> page and send us a message. We read every one.</p>"
           }
         }
       },

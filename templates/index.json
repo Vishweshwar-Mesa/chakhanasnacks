@@ -59,7 +59,7 @@
       "type": "shipping-banner",
       "settings": {
         "color_scheme": "scheme-3",
-        "free_shipping_heading": "Free shipping over ₹500",
+        "free_shipping_heading": "Free shipping over ₹600",
         "free_shipping_text": "Below that, flat ₹100 shipping across India.",
         "delivery_heading": "Delivered in 7 days",
         "delivery_text": "From the day you book, pan-India.",
@@ -123,7 +123,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/100g-makhana-4-pack.jpg",
-            "tag": "01 — Makhana",
+            "tag": "01. Makhana",
             "title": "Chips made from Makhana",
             "link": "shopify://collections/makhana-chips",
             "link_label": "Shop Makhana"
@@ -133,7 +133,7 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/50g-makhana-4-pack.jpg",
-            "tag": "02 — Bundles",
+            "tag": "02. Bundles",
             "title": "Bundles",
             "link": "shopify://collections/sampler-packs",
             "link_label": "Shop bundles"
@@ -176,7 +176,7 @@
           "settings": {
             "icon": "icon-fire.svg",
             "title": "Flavour-first",
-            "text": "Masaledar, chatpata, never bland — every flavour is built to crave."
+            "text": "Masaledar, chatpata, never bland. Every flavour is built to crave."
           }
         },
         "p2": {
@@ -184,7 +184,7 @@
           "settings": {
             "icon": "icon-leaf.svg",
             "title": "Real makhana",
-            "text": "Real fox nut, seasoned generously — a better-for-you snack."
+            "text": "Real fox nut, seasoned generously. A better-for-you snack."
           }
         },
         "p3": {
@@ -228,7 +228,7 @@
             "color_scheme": "scheme-3",
             "name": "Masala",
             "tagline": "Chatpate toh sab hai!!!",
-            "description": "<p>Our OG flavour — a masaledar, chatpata blend of classic Indian spices on every crispy makhana bite.</p>",
+            "description": "<p>Our OG flavour, a masaledar, chatpata blend of classic Indian spices on every crispy makhana bite.</p>",
             "image": "shopify://shop_images/masala-makhana-50g.jpg",
             "link": "shopify://collections/makhana-chips",
             "link_label": "Shop Masala"
@@ -240,7 +240,7 @@
             "color_scheme": "scheme-4",
             "name": "Peri Peri",
             "tagline": "Bhaiya thoda aur teeekha!!!!",
-            "description": "<p>For the ones who always ask for extra spicy — a fiery peri peri kick on every crunchy bite.</p>",
+            "description": "<p>For the ones who always ask for extra spicy, a fiery peri peri kick on every crunchy bite.</p>",
             "image": "shopify://shop_images/peri-peri-makhana-50g.jpg",
             "link": "shopify://collections/makhana-chips",
             "link_label": "Shop Peri Peri"
@@ -252,7 +252,7 @@
             "color_scheme": "scheme-5",
             "name": "Cream & Onion",
             "tagline": "Kuchu Puchu Keliye!!!!",
-            "description": "<p>Creamy, tangy, and impossible to put down — the classic cream &amp; onion crunch, makhana-style.</p>",
+            "description": "<p>Creamy, tangy, and impossible to put down. The classic cream &amp; onion crunch, makhana-style.</p>",
             "image": "shopify://shop_images/cream-onion-makhana-50g.jpg",
             "link": "shopify://collections/makhana-chips",
             "link_label": "Shop Cream & Onion"
@@ -264,7 +264,7 @@
             "color_scheme": "scheme-6",
             "name": "Jain Masala",
             "tagline": "Bina pyaz-lehsun, poora chatpata!!!",
-            "description": "<p>All the masaledar, chatpata flavour of our OG Masala — made without onion or garlic, so it fits Jain dietary preferences too.</p>",
+            "description": "<p>All the masaledar, chatpata flavour of our OG Masala, made without onion or garlic, so it fits Jain dietary preferences too.</p>",
             "image": "shopify://shop_images/jain-masala-makhana-50g.jpg",
             "link": "shopify://collections/makhana-chips",
             "link_label": "Shop Jain Masala"
@@ -313,7 +313,7 @@
         "badge_color_scheme": "scheme-6",
         "eyebrow": "The makhana story",
         "heading": "Not your dadi's boring plain makhana",
-        "text": "<p>Makhana (fox nuts) have been a snack cupboard staple forever — usually plain, usually forgotten halfway through the bowl. We season ours properly and keep it a better-for-you snack, in flavours worth reaching for again.</p>",
+        "text": "<p>Makhana (fox nuts) have been a snack cupboard staple forever, usually plain, usually forgotten halfway through the bowl. We season ours properly and keep it a better-for-you snack, in flavours worth reaching for again.</p>",
         "link": "shopify://collections/makhana-chips",
         "link_label": "Shop Makhana",
         "padding_top": 52,
@@ -362,7 +362,7 @@
         "color_scheme": "scheme-1",
         "eyebrow": "Can't decide?",
         "heading": "Build your crunch",
-        "text": "<p>All four Chakhana makhana flavours in one pack. The easiest way to find your favourite — spoiler, you'll like all four.</p>",
+        "text": "<p>All four Chakhana makhana flavours in one pack. The easiest way to find your favourite (spoiler, you'll like all four).</p>",
         "product": "chakhana-makhana-sampler-50g",
         "image": "shopify://shop_images/100g-makhana-4-pack.jpg",
         "link": "shopify://collections/sampler-packs",

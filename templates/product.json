@@ -62,7 +62,7 @@
           "settings": {
             "heading": "Shipping & returns",
             "icon": "truck",
-            "content": "<p>We ship pan-India. Delivery takes 7 days from the day you book your order. Free shipping on orders above &#8377;500 &mdash; below that, a flat &#8377;100 shipping charge applies.</p><p>As this is a food product, we're unable to accept returns once a pack has been opened — message us if anything arrives damaged and we'll sort it out.</p>"
+            "content": "<p>We ship pan-India. Delivery takes 7 days from the day you book your order. Free shipping on orders above &#8377;600. Below that, a flat &#8377;100 shipping charge applies.</p><p>As this is a food product, we're unable to accept returns once a pack has been opened. Message us if anything arrives damaged and we'll sort it out.</p>"
           }
         },
         "nutrition_facts": {
@@ -78,7 +78,7 @@
           "settings": {
             "heading": "Questions? Answered.",
             "icon": "chat_bubble",
-            "content": "<p><strong>How spicy is this?</strong> Check the flavour name — Peri Peri packs the most heat, Masala and Jain Masala are chatpata-medium, Cream & Onion is mild.</p><p><strong>Which size should I get?</strong> 50g is a quick solo craving; 100g is for sharing (or not).</p><p><strong>How long does a pack stay fresh once opened?</strong> Reseal the pouch tightly and finish within a few days for the best crunch.</p>"
+            "content": "<p><strong>How spicy is this?</strong> Check the flavour name. Peri Peri packs the most heat, Masala and Jain Masala are chatpata-medium, Cream & Onion is mild.</p><p><strong>Which size should I get?</strong> 50g is a quick solo craving; 100g is for sharing (or not).</p><p><strong>How long does a pack stay fresh once opened?</strong> Reseal the pouch tightly and finish within a few days for the best crunch.</p>"
           }
         },
         "share": {
