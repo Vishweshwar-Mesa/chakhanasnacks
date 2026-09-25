@@ -11,8 +11,11 @@ Thumbs.db
 node_modules
 *.zip
 
-# Local Claude Code tool config (not project source)
-.claude/
+# Local Claude Code tool config (not project source), except the
+# project-wide settings.json (hooks/permissions meant to be shared
+# across accounts/machines via git)
+.claude/*
+!.claude/settings.json
 
 # Non-asset reference files that sometimes land in assets/product-images/
 assets/product-images/*.pdf
