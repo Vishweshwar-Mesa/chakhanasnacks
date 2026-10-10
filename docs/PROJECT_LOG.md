@@ -6,6 +6,21 @@ Dated, reverse-chronological record of decisions, sessions, and gotchas for the 
 
 ---
 
+## 2026-10-10 — Paused all orders storefront-wide (business on hold), committed and pushed
+
+Business is temporarily on hold; the storefront needs to act as a catalogue only — no checkout, no payment — while still letting people reach out, including for large/bulk order requests.
+
+Added a theme setting `settings.pause_all_orders` (Admin → Theme settings → "Store status", default **on** in `config/settings_data.json`) that both snippets and sections check:
+- `snippets/buy-buttons.liquid`, `snippets/card-product.liquid` (collection-grid quick-add), `sections/box-builder.liquid`: when paused, the Add to cart / Buy now / Add box to cart controls are replaced with an "Enquire" link to `/pages/contact` (not just disabled — fully swapped out), and dynamic/accelerated checkout buttons (Shop Pay etc.) and the box builder's JS controller don't render at all.
+- `snippets/cart-drawer.liquid`, `snippets/cart-notification.liquid`, `sections/main-cart-footer.liquid`: checkout buttons stay as a disabled safety net (text becomes `settings.pause_all_orders_message`, default "Orders paused") in case anything already made it into a cart before the setting was live.
+- `sections/contact-form.liquid`: shows a notice when paused ("we're not taking online orders... let us know if you'd like a large or bulk order") and adds a "What's this about?" dropdown (General enquiry / Large order request) so those requests are flagged. Verified separately that the stock Shopify contact form never exposes the destination email address anywhere in the theme (no `mailto:` or literal address found repo-wide) — visitors can message the business without seeing where it goes.
+
+First pass only disabled the buttons in place; user caught that it wasn't live yet (open cart still showed an old cart with an enabled checkout button) and separately asked for the CTAs to read "Enquire" rather than a disabled "Orders paused" label — both addressed in the same session (second commit folded into the same change before pushing).
+
+**Deploy mechanism for this repo:** per the existing note on `origin` above, confirmed in practice this session — committing and `git push origin main` is the actual deploy path here (not `shopify theme push`, which would need interactive CLI auth this environment can't do unattended). Pushed as commit `a858a81`. If a future session needs to ship a theme change, commit + push to `origin main`, don't reach for `shopify theme push` first.
+
+To undo the pause later: flip `pause_all_orders` back to `false` in Admin → Theme settings (or `config/settings_data.json`) and push.
+
 ## 2026-09-25 — Added a Stop hook enforcing the log-update convention
 
 The cross-account context setup (`CLAUDE.md` + this log) relied purely on a Claude session remembering a written instruction to keep it updated — no enforcement. Added an actual `Stop` hook in `.claude/settings.json` (committed to git — see below) that fires after every assistant turn but only emits a `systemMessage` reminder when `git status --porcelain` shows real uncommitted changes outside `CLAUDE.md`/`docs/PROJECT_LOG.md` themselves; silent on read-only turns and once the tree is clean. Verified all three cases (clean tree silent, dirty-with-real-changes fires, dirty-only-in-the-log-files-themselves silent) by piping synthetic hook input directly at the extracted command.
