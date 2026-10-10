@@ -187,7 +187,7 @@
                     <span class="chk-box-card__price">Sold out</span>
                   {%- endif -%}
                 </span>
-                {%- if variant.available -%}
+                {%- if variant.available and settings.pause_all_orders == false -%}
                   <div class="chk-box-stepper" data-variant-row data-variant-id="{{ variant.id }}" data-variant-price="{{ variant.price }}">
                     <button type="button" data-decrement aria-label="Remove one {{ product.title | escape }} {{ variant.title }}">−</button>
                     <span class="chk-box-stepper__qty" data-qty>0</span>
@@ -212,15 +212,22 @@
 
   <div class="chk-box-builder__summary">
     <div class="chk-box-builder__summary-inner">
-      <span class="chk-box-builder__tier-message" data-tier-message>Pick 2 pouches for 5% off, or 4 for 10% off</span>
-      <button type="button" class="button chk-box-builder__add" data-add-to-cart disabled>
-        Add box to cart · <span data-total-price>{{ 0 | money }}</span>
-      </button>
+      {%- if settings.pause_all_orders -%}
+        <span class="chk-box-builder__tier-message" data-tier-message>Want to build a custom box? Send us an enquiry.</span>
+        <a href="/pages/contact" class="button chk-box-builder__add">Enquire</a>
+      {%- else -%}
+        <span class="chk-box-builder__tier-message" data-tier-message>Pick 2 pouches for 5% off, or 4 for 10% off</span>
+        <button type="button" class="button chk-box-builder__add" data-add-to-cart disabled>
+          Add box to cart · <span data-total-price>{{ 0 | money }}</span>
+        </button>
+      {%- endif -%}
     </div>
   </div>
 </box-builder>
 
-<script src="{{ 'chakhana-box-builder.js' | asset_url }}" defer="defer"></script>
+{%- unless settings.pause_all_orders -%}
+  <script src="{{ 'chakhana-box-builder.js' | asset_url }}" defer="defer"></script>
+{%- endunless -%}
 
 {% schema %}
 {

@@ -44,8 +44,18 @@
           {{- 'general.cart.view_empty_cart' | t -}}
         </a>
         <form action="{{ routes.cart_url }}" method="post" id="cart-notification-form">
-          <button class="button button--primary button--full-width" name="checkout">
-            {{ 'sections.cart.checkout' | t }}
+          <button
+            class="button button--primary button--full-width"
+            name="checkout"
+            {% if settings.pause_all_orders %}
+              disabled
+            {% endif %}
+          >
+            {% if settings.pause_all_orders %}
+              {{ settings.pause_all_orders_message }}
+            {% else %}
+              {{ 'sections.cart.checkout' | t }}
+            {% endif %}
           </button>
         </form>
         <button type="button" class="link button-label">{{ 'general.continue_shopping' | t }}</button>

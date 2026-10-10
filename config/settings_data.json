@@ -2,6 +2,8 @@
   "current": "Dawn",
   "presets": {
     "Dawn": {
+      "pause_all_orders": true,
+      "pause_all_orders_message": "Orders paused",
       "logo_width": 90,
       "favicon": "shopify://shop_images/chakhana-favicon.png",
       "color_schemes": {

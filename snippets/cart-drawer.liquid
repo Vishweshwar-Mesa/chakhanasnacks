@@ -635,11 +635,15 @@
             class="cart__checkout-button button"
             name="checkout"
             form="CartDrawer-Form"
-            {% if cart == empty %}
+            {% if cart == empty or settings.pause_all_orders %}
               disabled
             {% endif %}
           >
-            {{ 'sections.cart.checkout' | t }}
+            {% if settings.pause_all_orders %}
+              {{ settings.pause_all_orders_message }}
+            {% else %}
+              {{ 'sections.cart.checkout' | t }}
+            {% endif %}
           </button>
         </div>
       </div>

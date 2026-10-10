@@ -2,6 +2,10 @@
   max-width: 100%;
 }
 
+.contact__pause-notice {
+  margin-bottom: 2rem;
+}
+
 .contact .form__message {
   align-items: flex-start;
 }

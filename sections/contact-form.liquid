@@ -23,6 +23,11 @@
     {%- else -%}
       <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
     {%- endif -%}
+    {%- if settings.pause_all_orders -%}
+      <p class="contact__pause-notice">
+        We're not taking online orders right now. Browse the catalogue, and if you'd like to place a large or bulk order, let us know below and we'll get back to you directly.
+      </p>
+    {%- endif -%}
     {%- liquid
       assign contact_form_class = 'isolate'
       if settings.animations_reveal_on_scroll
@@ -50,6 +55,20 @@
             </a>
           </li>
         </ul>
+      {%- endif -%}
+      {%- if settings.pause_all_orders -%}
+        <div class="field contact__reason-field">
+          <label for="ContactForm-reason">What's this about?</label>
+          <div class="select">
+            <select id="ContactForm-reason" name="contact[Reason for contacting]">
+              <option value="General enquiry">General enquiry</option>
+              <option value="Large order request">Large order request</option>
+            </select>
+            <span class="svg-wrapper">
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </span>
+          </div>
+        </div>
       {%- endif -%}
       <div class="contact__fields">
         <div class="field">

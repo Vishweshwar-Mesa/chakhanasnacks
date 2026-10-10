@@ -110,16 +110,20 @@
                   id="checkout"
                   class="cart__checkout-button button"
                   name="checkout"
-                  {% if cart == empty %}
+                  {% if cart == empty or settings.pause_all_orders %}
                     disabled
                   {% endif %}
                   form="cart"
                 >
-                  {{ 'sections.cart.checkout' | t }}
+                  {% if settings.pause_all_orders %}
+                    {{ settings.pause_all_orders_message }}
+                  {% else %}
+                    {{ 'sections.cart.checkout' | t }}
+                  {% endif %}
                 </button>
               </div>
 
-              {%- if additional_checkout_buttons -%}
+              {%- if additional_checkout_buttons and settings.pause_all_orders == false -%}
                 <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
                   {{ content_for_additional_checkout_buttons }}
                 </div>
