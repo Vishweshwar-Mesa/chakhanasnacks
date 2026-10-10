@@ -20,7 +20,7 @@ A custom Shopify Online Store 2.0 theme (Dawn 15.5.0 base) for Chakhana, a makha
 
 - Storefront copy should read as human-written, not AI-generated: avoid em dashes in visible copy (use periods, commas, or parentheses instead); this was a deliberate cleanup pass, keep new copy consistent with it.
 - Auto mode's safety classifier blocks Claude from running `shopify store auth` (and reading its credential cache) unattended most of the time — it's inconsistent, not a fixed 100% block, but don't loop retrying it. The reliable path is asking the user to run CLI auth themselves in their own terminal and relay results, or pasting query output back for Claude to act on.
-- Only commit when explicitly asked. Pushing to `origin` is fine once asked for, but always diff against `origin/main` first given the auto-sync behavior above.
+- **Commit and push every change, without waiting to be asked each time** (standing instruction as of 2026-10-10 — supersedes the old "only commit when asked" default). After any code/config edit that leaves the tree in a working state, `git add` the touched files, commit, and `git push origin main` before ending the turn — that's the deploy path for this repo (see the `origin` note above), so an uncommitted or unpushed change is a live-site change that silently didn't ship. Always diff against `origin/main` first given the auto-sync behavior above, and still never use destructive git commands without asking.
 
 ## Keeping this current
 
