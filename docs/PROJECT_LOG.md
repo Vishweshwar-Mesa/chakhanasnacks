@@ -21,6 +21,11 @@ First pass only disabled the buttons in place; user caught that it wasn't live y
 
 To undo the pause later: flip `pause_all_orders` back to `false` in Admin → Theme settings (or `config/settings_data.json`) and push.
 
+**Follow-up same day:** user asked to "remove the cart option in total." With nothing purchasable, the cart icon/drawer/notification were removed too, not just checkout:
+- `sections/header.liquid`: the `#cart-icon-bubble` header link and the `cart-notification` render are both wrapped so they don't render at all when `settings.pause_all_orders` is true.
+- `layout/theme.liquid`: the `cart-drawer` snippet render is skipped the same way (the `cart-drawer.js` `<script>` tag is left as-is, gated only on `cart_type == 'drawer'` as before — harmless to load with no `<cart-drawer>` element in the DOM, and the JS already null-checks `#cart-icon-bubble` before touching it, confirmed by reading `assets/cart-drawer.js` and `assets/chakhana-motion.js`).
+- `/cart` is still reachable by direct URL (not locked down — no ask for that, and it's harmless since nothing can be added to it and its checkout button is already disabled from the earlier change).
+
 ## 2026-09-25 — Added a Stop hook enforcing the log-update convention
 
 The cross-account context setup (`CLAUDE.md` + this log) relied purely on a Claude session remembering a written instruction to keep it updated — no enforcement. Added an actual `Stop` hook in `.claude/settings.json` (committed to git — see below) that fires after every assistant turn but only emits a `systemMessage` reminder when `git status --porcelain` shows real uncommitted changes outside `CLAUDE.md`/`docs/PROJECT_LOG.md` themselves; silent on read-only turns and once the tree is clean. Verified all three cases (clean tree silent, dirty-with-real-changes fires, dirty-only-in-the-log-files-themselves silent) by piping synthetic hook input directly at the extracted command.

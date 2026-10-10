@@ -356,7 +356,7 @@
       {{ 'accessibility.skip_to_text' | t }}
     </a>
 
-    {%- if settings.cart_type == 'drawer' -%}
+    {%- if settings.cart_type == 'drawer' and settings.pause_all_orders == false -%}
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
